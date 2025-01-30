@@ -74,7 +74,7 @@ export const testimonials = [
     technologies: ["Tableau", "Python"],
     liveUrl: "https://public.tableau.com/views/Book2_17380410342780/Dashboard1?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
     githubUrl: "",
-    mediumUrl: "",
+    mediumUrl: "https://medium.com/@avyllesca/human-resources-dashboard-50a21384967b",
     features: [
       "Visualización de ausencias por sucursal",
       "Seguimiento de la rotación de personal",
