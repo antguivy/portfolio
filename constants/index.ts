@@ -68,18 +68,19 @@ export const testimonials = [
     ]
   },
   {
-    title: "Social Media Analytics",
-    description: "Comprehensive social media analytics platform providing insights and engagement metrics across multiple platforms.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    technologies: ["Vue.js", "Python", "D3.js", "AWS", "Redis"],
-    liveUrl: "https://analytics-demo.com",
-    githubUrl: "https://github.com/johndoe/analytics",
+    title: "Dashboard Recursos Humanos",
+    description: "Dashboard interactivo para la gestión de Recursos Humanos, proporcionando métricas clave sobre ausencias, rotación de personal y descuentos por sucursal.",
+    image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*hhWa3gl8a_jPVmJN7lBBgg.png",
+    technologies: ["Tableau", "Python"],
+    liveUrl: "https://public.tableau.com/views/Book2_17380410342780/Dashboard1?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
+    githubUrl: "",
     mediumUrl: "",
     features: [
-      "Cross-platform analytics",
-      "Custom report generation",
-      "Engagement tracking",
-      "Trend analysis"
+      "Visualización de ausencias por sucursal",
+      "Seguimiento de la rotación de personal",
+      "Comparación de colaboradores activos por mes",
+      "Mapa de calor de descuentos",
+      "Filtros interactivos por mes y sucursal"
     ]
   }
 ];
