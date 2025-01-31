@@ -20,8 +20,7 @@ const Hero = () => {
             Hola, soy <span className="text-primary">Anthony</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Futuro Analista de Datos con experiencia en desarrollo Full Stack a
-            través de la creación de una SaaS robusta.
+            Futuro Analista de Datos con experiencia en Desarrollo Web.
           </p>
           <div className="flex gap-4">
             <Link href={"/#contact"}>
