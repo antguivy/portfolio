@@ -14,7 +14,6 @@ export const technologies = [
 
 ]
 
-
 export const testimonials = [
   {
     name: "Sarah Johnson",
@@ -49,7 +48,6 @@ export const testimonials = [
       "Automatización de Navegación Web",
       "Extracción de datos financieros",
       "Procesamiento y limpieza de datos",
-      // "Order management"
     ]
   },
   {

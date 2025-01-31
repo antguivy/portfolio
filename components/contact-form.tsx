@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { sendContactMessage } from "@/lib/actions";
 
 const formSchema = z.object({
   name: z.string().min(2, "El nombre debe de tener al menos 2 caracteres"),
@@ -32,11 +33,21 @@ const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // backend logic here
-    console.log(values);
-    toast("Mensaje enviado")
-    form.reset();
+  // Este será el action
+  const onSubmit = async(values: z.infer<typeof formSchema>)  =>{
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("message", values.message);
+
+    const result = await sendContactMessage(formData);
+
+    if (result.success) {
+      toast("Mensaje enviado con éxito");
+      form.reset();
+    } else {
+      toast.error(result.error || "Error al enviar el mensaje");
+    }
   }
 
   return (
