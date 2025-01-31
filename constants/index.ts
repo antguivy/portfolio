@@ -51,7 +51,7 @@ export const testimonials = [
     ]
   },
   {
-    title: "EDA for Top Games on Google Play",
+    title: "EDA para juegos en Google Play",
     description: "Análisis Exploratorio de Datos (EDA) de los mejores juegos en Google Play, revelando información sobre categorías, calificaciones, instalaciones y popularidad.",
     image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Ia9V_nJ6za0viVMaqyiZRg.png",
     technologies: ["Python", "Streamlit", "Plotly", "Pandas"],
@@ -66,7 +66,7 @@ export const testimonials = [
     ]
   },
   {
-    title: "Dashboard Recursos Humanos",
+    title: "Dashboard para Recursos Humanos",
     description: "Dashboard interactivo para la gestión de Recursos Humanos, proporcionando métricas clave sobre ausencias, rotación de personal y descuentos por sucursal.",
     image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*hhWa3gl8a_jPVmJN7lBBgg.png",
     technologies: ["Tableau", "Python"],
