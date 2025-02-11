@@ -80,5 +80,21 @@ export const testimonials = [
       "Mapa de calor de descuentos",
       "Filtros interactivos por mes y sucursal"
     ]
+  },
+  {
+    "title": "Segmentación de Productos con K-means",
+    "description": "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
+    "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*3P8J9su-2v5M0kniOaH7ow.png",
+    "technologies": ["Python", "K-means", "Machine Learning"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "mediumUrl": 'https://avyllesca.medium.com/clustering-products-in-online-retail-using-k-means-for-optimized-strategies-b9d72e5d1fed',
+    "features": [
+      "Preprocesamiento de datos y manejo de outliers",
+      "Segmentación de productos basada en unidades vendidas, visibilidad y ventas",
+      "Aplicación del método del codo y el índice de silueta para determinar k",
+      "Visualización interactiva de los clusters en 3D",
+      "Estrategias personalizadas según cada segmento de productos"
+    ]
   }
 ];
