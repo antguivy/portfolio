@@ -21,7 +21,7 @@ export function Footer() {
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.linkedin.com/in/anthonyvillazana/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/anthonygy/" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="w-4 h-4" />
                 </a>
               </Button>
