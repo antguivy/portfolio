@@ -43,7 +43,7 @@ export const testimonials = [
     "technologies": ["Python", "K-means", "Machine Learning"],
     "liveUrl": "",
     "githubUrl": "",
-    "mediumUrl": 'https://avyllesca.medium.com/clustering-products-in-online-retail-using-k-means-for-optimized-strategies-b9d72e5d1fed',
+    "mediumUrl": 'https://antguivy.medium.com/clustering-products-in-online-retail-using-k-means-for-optimized-strategies-b9d72e5d1fed',
     "features": [
       "Preprocesamiento de datos y manejo de outliers",
       "Segmentación de productos basada en unidades vendidas, visibilidad y ventas",
@@ -59,7 +59,7 @@ export const testimonials = [
     technologies: ["Python", "Selenium"],
     liveUrl: "",
     githubUrl: "",
-    mediumUrl: "https://medium.com/@avyllesca/web-scraping-the-lima-stock-exchange-bvl-7a80b89990da",
+    mediumUrl: "https://medium.com/@antguivy/web-scraping-the-lima-stock-exchange-bvl-7a80b89990da",
     features: [
       "Automatización de Navegación Web",
       "Extracción de datos financieros",
@@ -73,7 +73,7 @@ export const testimonials = [
     technologies: ["Tableau", "Python"],
     liveUrl: "https://public.tableau.com/views/Book2_17380410342780/Dashboard1?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
     githubUrl: "",
-    mediumUrl: "https://medium.com/@avyllesca/human-resources-dashboard-50a21384967b",
+    mediumUrl: "https://medium.com/@antguivy/human-resources-dashboard-50a21384967b",
     features: [
       "Visualización de ausencias por sucursal",
       "Seguimiento de la rotación de personal",

@@ -16,17 +16,17 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/anthoguille" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/antguivy" target="_blank" rel="noopener noreferrer">
                   <FaGithub className="w-4 h-4" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.linkedin.com/in/anthonygy/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/antguivy/" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="w-4 h-4" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="mailto:avyllesca@gmail.com">
+                <a href="mailto:antguivy@gmail.com">
                   <Mail className="w-4 h-4" />
                 </a>
               </Button>
@@ -66,8 +66,8 @@ export function Footer() {
                 Huancayo - Junín, Perú
               </li>
               <li>
-                <a href="mailto:avyllesca@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  avyllesca@gmail.com
+                <a href="mailto:antguivy@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  antguivy@gmail.com
                 </a>
               </li>
               <li>

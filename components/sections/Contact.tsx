@@ -24,17 +24,17 @@ const Contact = () => {
           </p>
           <div className="flex gap-4 mb-8">
             <Button variant={"outline"} size="icon" asChild>
-              <Link href="https://github.com/anthoguille" target="_blank">
+              <Link href="https://github.com/antguivy" target="_blank">
                 <FaGithub className="w-5 h-5" />
               </Link>
             </Button>
             <Button variant={"outline"} size={"icon"} asChild>
-              <a href="https://www.linkedin.com/in/anthonygy/" target="_blank">
+              <a href="https://www.linkedin.com/in/antguivy/" target="_blank">
                 <FaLinkedin className="w-5 h-5" />
               </a>
             </Button>
             <Button variant={"outline"} size={"icon"} asChild>
-              <a href="mailto:avyllesca@gmail.com" target="_blank">
+              <a href="mailto:antguivy@gmail.com" target="_blank">
                 <Mail className="w-5 h-5" />
               </a>
             </Button>

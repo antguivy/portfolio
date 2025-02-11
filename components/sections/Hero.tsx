@@ -30,7 +30,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Link
-              href={"https://www.linkedin.com/in/anthonygy/"}
+              href={"https://www.linkedin.com/in/antguivy/"}
               target="_blank"
             >
               <Button variant={"outline"} className="gap-2">
