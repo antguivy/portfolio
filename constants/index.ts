@@ -37,6 +37,22 @@ export const testimonials = [
 
  export const projects = [
   {
+    "title": "Segmentación de Productos con K-means",
+    "description": "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
+    "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*3P8J9su-2v5M0kniOaH7ow.png",
+    "technologies": ["Python", "K-means", "Machine Learning"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "mediumUrl": 'https://avyllesca.medium.com/clustering-products-in-online-retail-using-k-means-for-optimized-strategies-b9d72e5d1fed',
+    "features": [
+      "Preprocesamiento de datos y manejo de outliers",
+      "Segmentación de productos basada en unidades vendidas, visibilidad y ventas",
+      "Aplicación del método del codo y el índice de silueta para determinar k",
+      "Visualización interactiva de los clusters en 3D",
+      "Estrategias personalizadas según cada segmento de productos"
+    ]
+  },
+  {
     title: "Web Scraping BVL (Bolsa de Valores de Lima)",
     description: "Extracción de datos públicos para un estudio realizado por otra persona, cuyo objetivo fue estimar la eficiencia financiera de las empresas listadas en la BVL.",
     image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bolsa_de_Valores_de_Lima_logo.png",
@@ -48,21 +64,6 @@ export const testimonials = [
       "Automatización de Navegación Web",
       "Extracción de datos financieros",
       "Procesamiento y limpieza de datos",
-    ]
-  },
-  {
-    title: "EDA para juegos en Google Play",
-    description: "Análisis Exploratorio de Datos (EDA) de los mejores juegos en Google Play, revelando información sobre categorías, calificaciones, instalaciones y popularidad.",
-    image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Ia9V_nJ6za0viVMaqyiZRg.png",
-    technologies: ["Python", "Streamlit", "Plotly", "Pandas"],
-    liveUrl: "https://eda-top-games.streamlit.app/",
-    githubUrl: "",
-    mediumUrl: "https://medium.com/analytics-vidhya/top-games-google-play-store-dashboard-with-plotly-and-streamlit-5cae418fd915",
-    features: [
-      "Dashboard interactivo para exploración de datos",
-      "Análisis de juegos gratis vs de pago",
-      "Análisis de calificaciones e instalaciones por categoría",
-      "Sistema de puntuación ponderado para identificar los mejores juegos",
     ]
   },
   {
@@ -82,19 +83,18 @@ export const testimonials = [
     ]
   },
   {
-    "title": "Segmentación de Productos con K-means",
-    "description": "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
-    "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*3P8J9su-2v5M0kniOaH7ow.png",
-    "technologies": ["Python", "K-means", "Machine Learning"],
-    "liveUrl": "",
-    "githubUrl": "",
-    "mediumUrl": 'https://avyllesca.medium.com/clustering-products-in-online-retail-using-k-means-for-optimized-strategies-b9d72e5d1fed',
-    "features": [
-      "Preprocesamiento de datos y manejo de outliers",
-      "Segmentación de productos basada en unidades vendidas, visibilidad y ventas",
-      "Aplicación del método del codo y el índice de silueta para determinar k",
-      "Visualización interactiva de los clusters en 3D",
-      "Estrategias personalizadas según cada segmento de productos"
+    title: "EDA para juegos en Google Play",
+    description: "Análisis Exploratorio de Datos (EDA) de los mejores juegos en Google Play, revelando información sobre categorías, calificaciones, instalaciones y popularidad.",
+    image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Ia9V_nJ6za0viVMaqyiZRg.png",
+    technologies: ["Python", "Streamlit", "Plotly", "Pandas"],
+    liveUrl: "https://eda-top-games.streamlit.app/",
+    githubUrl: "",
+    mediumUrl: "https://medium.com/analytics-vidhya/top-games-google-play-store-dashboard-with-plotly-and-streamlit-5cae418fd915",
+    features: [
+      "Dashboard interactivo para exploración de datos",
+      "Análisis de juegos gratis vs de pago",
+      "Análisis de calificaciones e instalaciones por categoría",
+      "Sistema de puntuación ponderado para identificar los mejores juegos",
     ]
   }
 ];
