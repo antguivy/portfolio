@@ -20,7 +20,7 @@ const Hero = () => {
             Hola, soy <span className="text-primary">Anthony</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Analista de Datos con experiencia en Desarrollo Web.
+            Analista de Datos Junior con experiencia en Desarrollo Web.
           </p>
           <div className="flex gap-4">
             <Link href={"/#contact"}>

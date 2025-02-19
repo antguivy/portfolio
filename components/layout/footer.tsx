@@ -12,7 +12,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-xl font-bold text-primary mb-4">Anthony Villazana</h3>
             <p className="text-muted-foreground mb-4">
-            Analista de Datos con experiencia en Desarrollo Web.
+            Analista de Datos Junior con experiencia en Desarrollo Web.
             </p>
             <div className="flex gap-4">
               <Button variant="outline" size="icon" asChild>
