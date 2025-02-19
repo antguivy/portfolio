@@ -38,7 +38,7 @@ export const testimonials = [
  export const projects = [
   {
     "title": "ETL para Análisis de Descripciones de Productos de Falabella",
-    "description": "Pipeline ETL completo para la extracción, transformación y carga de datos de productos.",
+    "description": "Pipeline ETL para el análisis de datos de productos de temporada de playa.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Falabella.svg/320px-Falabella.svg.png",
     "technologies": ["Python", "Análisis de Datos", "Gemini AI", "Web Scraping"],
     "liveUrl": "",
