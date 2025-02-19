@@ -22,8 +22,9 @@ const Projects = () => {
             Proyectos <span className="text-primary">Relevantes</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-          Explora mis proyectos más recientes, donde he aplicado técnicas de análisis de datos, desde la extracción y 
-          limpieza de datos hasta la creación de visualizaciones interactivas y dashboards.
+            Explora mis proyectos más recientes, donde he aplicado técnicas de
+            análisis de datos, desde la extracción y limpieza de datos hasta la
+            creación de visualizaciones interactivas y dashboards.
           </p>
         </motion.div>
       </div>
@@ -86,6 +87,11 @@ const Projects = () => {
                     </Button>
                   )}
                 </div>
+                {project.publicationDate && (
+                    <div className="absolute bottom-0 right-0 bg-gray-800 text-white font-semibold px-2 rounded-md shadow w-fit mb-2 mr-2">
+                    {project.publicationDate}
+                    </div>
+                )}
               </div>
 
               <div className="p-6">

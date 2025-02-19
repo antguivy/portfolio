@@ -37,6 +37,23 @@ export const testimonials = [
 
  export const projects = [
   {
+    "title": "ETL para Análisis de Descripciones de Productos de Falabella",
+    "description": "Pipeline ETL completo para la extracción, transformación y carga de datos de productos.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Falabella.svg/320px-Falabella.svg.png",
+    "technologies": ["Python", "Análisis de Datos", "Gemini AI", "Web Scraping"],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/antguivy/data_analysis/tree/main/etl-falabella-playa",
+    "mediumUrl": "",
+    "features": [
+      "Extracción de datos de productos de falabella (Temporada Playa) mediante web scraping.",
+      "Análisis de la relación entre descripciones de productos y sus categorías, utilizando Gemini AI.",
+      "Detección y análisis de productos duplicados.",
+      "Análisis de reviews y rating de productos, incluyendo el cálculo de rating ponderado (similar a IMDb).",
+    ],
+    publicationDate:"19/02/2025",
+    linkedinUrl:""
+  },
+  {
     "title": "Segmentación de Productos con K-means",
     "description": "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
     "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*3P8J9su-2v5M0kniOaH7ow.png",
@@ -50,7 +67,9 @@ export const testimonials = [
       "Aplicación del método del codo y el índice de silueta para determinar k",
       "Visualización interactiva de los clusters en 3D",
       "Estrategias personalizadas según cada segmento de productos"
-    ]
+    ],
+    publicationDate:"",
+    linkedinUrl:""
   },
   {
     title: "Web Scraping BVL (Bolsa de Valores de Lima)",
@@ -64,7 +83,9 @@ export const testimonials = [
       "Automatización de Navegación Web",
       "Extracción de datos financieros",
       "Procesamiento y limpieza de datos",
-    ]
+    ],
+    publicationDate:"",
+    linkedinUrl:""
   },
   {
     title: "Dashboard para Recursos Humanos",
@@ -80,7 +101,9 @@ export const testimonials = [
       "Comparación de colaboradores activos por mes",
       "Mapa de calor de descuentos",
       "Filtros interactivos por mes y sucursal"
-    ]
+    ],
+    publicationDate:"",
+    linkedinUrl:""
   },
   {
     title: "EDA para juegos en Google Play",
@@ -95,6 +118,8 @@ export const testimonials = [
       "Análisis de juegos gratis vs de pago",
       "Análisis de calificaciones e instalaciones por categoría",
       "Sistema de puntuación ponderado para identificar los mejores juegos",
-    ]
+    ],
+    publicationDate:"",
+    linkedinUrl:""
   }
 ];
