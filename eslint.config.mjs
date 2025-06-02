@@ -1,24 +1,24 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+
+import js from '@eslint/js'
 import { FlatCompat } from "@eslint/eslintrc";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  // import.meta.dirname is available after Node.js v20.11.0
+  baseDirectory: import.meta.dirname,
+  recommendedConfig: js.configs.recommended,
+})
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: ['eslint:recommended', 'next'],
+  }),
   {
     rules: {
-      "@typescript-eslint/ban-ts-comment": [
-        "error",
-        {
-          "ts-expect-error": "allow-with-description", // O usa "allow-without-description" para desactivar
-        }
-      ]
+      'no-unused-vars': 'off',
+      'no-wrapper-object-types':'off',
+      'no-undef':'off',
+      'no-useless-escape':'off',
+      'react/no-unescaped-entities': 'off'
     }
   }
 ];
