@@ -58,7 +58,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-50 via-white to-green-50/30 border-t border-slate-200/50 overflow-hidden">
+    <footer className="relative border-slate-200/50 overflow-hidden">
       {/* Background decorativo */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.03),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.03),transparent_50%)]" />

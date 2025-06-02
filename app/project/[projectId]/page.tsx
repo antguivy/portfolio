@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import fs from "fs";
 import path from "path";
-import { projects } from "@/data/projects";
+import { projects } from "@/lib/data";
 import ProjectDetail from "./_components/project-detail";
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
@@ -42,52 +42,52 @@ const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
   return content;
 }
 
-function processGitHubSpecialContent(content: string, owner: string, repo: string): string {
-  // Convertir enlaces a issues y PRs
-  content = content.replace(
-    /#(\d+)/g,
-    `[#$1](https://github.com/${owner}/${repo}/issues/$1)`
-  );
+// function processGitHubSpecialContent(content: string, owner: string, repo: string): string {
+//   // Convertir enlaces a issues y PRs
+//   content = content.replace(
+//     /#(\d+)/g,
+//     `[#$1](https://github.com/${owner}/${repo}/issues/$1)`
+//   );
 
-  // Convertir menciones de usuarios
-  content = content.replace(
-    /@([a-zA-Z0-9-]+)/g,
-    `[@$1](https://github.com/$1)`
-  );
+//   // Convertir menciones de usuarios
+//   content = content.replace(
+//     /@([a-zA-Z0-9-]+)/g,
+//     `[@$1](https://github.com/$1)`
+//   );
 
-  // Procesar alertas de GitHub (> [!NOTE], > [!WARNING], etc.)
-  // content = content.replace(
-  //   /^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$/gm,
-  //   (match, type) => {
-  //     const alertClass = {
-  //       NOTE: 'note',
-  //       TIP: 'tip', 
-  //       IMPORTANT: 'important',
-  //       WARNING: 'warning',
-  //       CAUTION: 'caution'
-  //     }[type] || 'note';
+//   // Procesar alertas de GitHub (> [!NOTE], > [!WARNING], etc.)
+//   content = content.replace(
+//     /^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$/gm,
+//     (match, type) => {
+//       const alertClass = {
+//         NOTE: 'note',
+//         TIP: 'tip', 
+//         IMPORTANT: 'important',
+//         WARNING: 'warning',
+//         CAUTION: 'caution'
+//       }[type] || 'note';
       
-  //     return `<div class="github-alert github-alert-${alertClass.toLowerCase()}">
-  //       <p class="github-alert-title">${type}</p>`;
-  //   }
-  // );
+//       return `<div class="github-alert github-alert-${alertClass.toLowerCase()}">
+//         <p class="github-alert-title">${type}</p>`;
+//     }
+//   );
 
-  // Cerrar alertas
-  content = content.replace(
-    /(^> \[!(?:NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][\s\S]*?)(?=\n\n|\n$|$)/gm,
-    '$1\n</div>'
-  );
+//   // Cerrar alertas
+//   content = content.replace(
+//     /(^> \[!(?:NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][\s\S]*?)(?=\n\n|\n$|$)/gm,
+//     '$1\n</div>'
+//   );
 
-  return content;
-}
+//   return content;
+// }
 
 async function getGitHubReadme(githubUrl: string) {
   try {
-    const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/);
+    const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
     if (!match) return null;
 
-    const [, owner, repo, branch, folderPath] = match;
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}/README.md?ref=${branch}`;
+    const [, owner, repo] = match;
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
     
     const response = await fetch(apiUrl, {
       headers: {
@@ -103,7 +103,7 @@ async function getGitHubReadme(githubUrl: string) {
     
     // Procesar URLs relativas y contenido especial
     markdownContent = convertRelativeUrls(markdownContent, githubUrl);
-    markdownContent = processGitHubSpecialContent(markdownContent, owner, repo);
+    // markdownContent = processGitHubSpecialContent(markdownContent, owner, repo);
     
     // Procesar markdown con todos los plugins
     const { unified } = await import('unified');

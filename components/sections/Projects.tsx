@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { projects, categories } from "@/data/projects";
+import { projects, categories } from "@/lib/data";
 import { Card } from "../ui/card";
 import Image from "next/image";
 import { Button } from "../ui/button";

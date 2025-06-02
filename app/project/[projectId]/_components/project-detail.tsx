@@ -12,26 +12,27 @@ import {
   Globe,
   Code,
 } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { categories } from "@/data/projects";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { categories } from "@/lib/data";
 import {
   getCategoryBadgeClass,
   getCategoryColor,
   getCategoryIcon,
 } from "@/components/functions";
+import { Project } from "@/lib/types";
 
 export default function ProjectDetail({
   project,
   markdownContent,
 }: {
-  project: any;
+  project: Project;
   markdownContent: string | null;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+    <div className="min-h-screen">
       {/* Header con navegación */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
-        <div className="container mx-auto px-6 py-4">
+      <header className="sticky h-20 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
+        <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <Link
               href="/project"
@@ -58,15 +59,15 @@ export default function ProjectDetail({
                   </Link>
                 </Button>
               )}
-              {project.githubUrl && (
+              {project.linkedinUrl && (
                 <Button asChild size="sm" variant="outline">
                   <Link
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaGithub className="w-4 h-4 mr-2" />
-                    GitHub
+                    <FaLinkedin className="w-4 h-4 mr-2" />
+                    LinkedIn
                   </Link>
                 </Button>
               )}
@@ -78,14 +79,18 @@ export default function ProjectDetail({
       <main className="container mx-auto px-6 py-12 w-full">
         {/* Hero Section */}
         <div className="mx-auto mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            {project.title}
-          </h1>
-          
-          <p className="text-xl text-gray-600 leading-relaxed mb-8">
-            {project.description}
-          </p>
-          
+          {!markdownContent && (
+            <>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                {project.title}
+              </h1>
+
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                {project.description}
+              </p>
+            </>
+          )}
+
           {/* Category Badge */}
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-md border">
@@ -105,21 +110,22 @@ export default function ProjectDetail({
               <Calendar className="w-4 h-4" />
               <span className="text-sm font-medium">{project.date}</span>
             </div>
-            
+
             {project.status && (
               <div>
                 <Badge
+                variant="outline"
                   className={`${
                     project.status === "deployed"
                       ? "bg-green-100 text-green-800"
-                      : project.status === "development"
+                      : project.status === "in-progress"
                       ? "bg-yellow-100 text-yellow-800"
                       : "bg-gray-100 text-gray-800"
                   }`}
                 >
                   {project.status === "deployed"
                     ? "Desplegado"
-                    : project.status === "development"
+                    : project.status === "in-progress"
                     ? "En desarrollo"
                     : project.status}
                 </Badge>
@@ -142,7 +148,7 @@ export default function ProjectDetail({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4">
+          {/* <div className="flex flex-wrap gap-4">
             {project.demoUrl && (
               <Button
                 asChild
@@ -171,15 +177,15 @@ export default function ProjectDetail({
                 </Link>
               </Button>
             )}
-          </div>
+          </div> */}
         </div>
 
         <div className="mx-auto gap-12">
           {/* Markdown Content */}
-       {markdownContent ? (
-            <Card className="p-0 overflow-hidden border-0 shadow-lg">
+          {markdownContent ? (
+            <Card className="p-0 overflow-hidden border-0 shadow-lg ">
               {/* Header estilo GitHub */}
-              <div className="bg-gray-50 border-b px-8 py-4 flex items-center justify-between">
+              <div className="bg-gray-50  border-b px-8 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <FaGithub className="w-5 h-5 text-gray-600" />
                   <span className="font-semibold text-gray-800">README.md</span>
@@ -205,7 +211,7 @@ export default function ProjectDetail({
                   dangerouslySetInnerHTML={{ __html: markdownContent }}
                 />
               </div>
-              
+
               {/* Footer con info de sincronización */}
               <div className="bg-blue-50 border-t px-8 py-4">
                 <div className="text-sm text-blue-800 flex items-center gap-2">
@@ -222,7 +228,8 @@ export default function ProjectDetail({
                   Documentación en desarrollo
                 </p>
                 <p>
-                  El contenido detallado de este proyecto estará disponible pronto.
+                  El contenido detallado de este proyecto estará disponible
+                  pronto.
                 </p>
                 {project.githubUrl && (
                   <div className="mt-4">
@@ -243,15 +250,16 @@ export default function ProjectDetail({
           )}
         </div>
       </main>
-         <style jsx global>{`
+      <style jsx global>{`
         /* Importar estilos de KaTeX para matemáticas */
-        @import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
-        
+        @import url("https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css");
+
         /* Importar estilos de highlight.js para sintaxis */
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css');
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css");
 
         .github-markdown-body {
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+            "Noto Sans", Helvetica, Arial, sans-serif;
           font-size: 16px;
           line-height: 1.5;
           word-wrap: break-word;
@@ -283,7 +291,9 @@ export default function ProjectDetail({
           margin-top: 24px;
         }
 
-        .github-markdown-body h4, .github-markdown-body h5, .github-markdown-body h6 {
+        .github-markdown-body h4,
+        .github-markdown-body h5,
+        .github-markdown-body h6 {
           font-weight: 600;
           margin-bottom: 16px;
           margin-top: 24px;
@@ -308,7 +318,8 @@ export default function ProjectDetail({
           padding: 0.2em 0.4em;
           border-radius: 6px;
           font-size: 85%;
-          font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+          font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+            "Liberation Mono", Menlo, monospace;
         }
 
         .github-markdown-body pre {
@@ -339,7 +350,8 @@ export default function ProjectDetail({
           margin: 0 0 16px 0;
         }
 
-        .github-markdown-body ul, .github-markdown-body ol {
+        .github-markdown-body ul,
+        .github-markdown-body ol {
           margin-bottom: 16px;
           padding-left: 2em;
         }
@@ -435,7 +447,8 @@ export default function ProjectDetail({
         }
 
         /* Menciones de usuarios */
-        .github-markdown-body a[href^="https://github.com/"]:not([href*="/issues/"]):not([href*="/pull/"]) {
+        .github-markdown-body a[href^="https://github.com/"]:not([href*="/issues/"]):not([href*="/pull/"])
+        {
           color: #0969da;
           font-weight: 500;
         }

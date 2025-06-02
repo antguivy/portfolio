@@ -1,9 +1,9 @@
 "use client";
 import React, { useCallback, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { technologies } from "@/constants";
 import { Card } from "../ui/card";
 import Image from "next/image";
+import { technologies } from "@/lib/data";
 
 export function Skills () {
  const [hoveredSkill, setHoveredSkill] = useState<String | null>(null);
