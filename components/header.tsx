@@ -16,26 +16,28 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    { 
-      label: "Skills", 
-      href: "#skills",
-      icon: Code,
-      color: "text-green-600"
-    },
-    { 
-      label: "Proyectos", 
-      href: "/project",
-      icon: Sparkles,
-      color: "text-blue-600"
-    },
-    { 
-      label: "Contacto", 
-      href: "#contact",
-      icon: Mail,
-      color: "text-purple-600"
-    },
-  ];
+const menuItems = [
+  { 
+    label: "Skills", 
+    href: "/",     // cambias el href
+    hash: "#skills",
+    icon: Code,
+    color: "text-green-600"
+  },
+  {
+    label: "Proyectos",
+    href: "/project",
+    icon: Sparkles,
+    color: "text-blue-600"
+  },
+  {
+    label: "Contacto",
+    href: "/",
+    hash: "#contact",
+    icon: Mail,
+    color: "text-purple-600"
+  }
+];
 
   return (
     <header
@@ -84,12 +86,12 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-2">
             {menuItems.map((item, index) => (
               <motion.div
-                key={item.href}
+                key={`${item.href}-${index}`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <Link href={item.href}>
+                <Link href={`${item.href}${item.hash || ""}`}>
                   <Button
                     variant="ghost"
                     className="group relative h-11 px-4 rounded-xl hover:bg-slate-50 transition-all duration-300"
@@ -159,13 +161,13 @@ const Header = () => {
               <div className="space-y-2">
                 {menuItems.map((item, index) => (
                   <motion.div
-                    key={item.href}
+                    key={`${item.href}-${index}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
                     <Link
-                      href={item.href}
+                      href={`${item.href}${item.hash || ""}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all duration-300 group"
                     >

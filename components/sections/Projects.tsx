@@ -278,7 +278,7 @@ export function Projects() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <Link href="/projects" prefetch={false}>
+          <Link href="/project" prefetch={false}>
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
               Ver Todos los Proyectos
               <ArrowUpRight className="w-5 h-5 ml-2" />

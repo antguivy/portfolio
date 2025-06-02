@@ -12,10 +12,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { href: '#about', label: 'Acerca de mí' },
-    { href: '#skills', label: 'Habilidades' },
-    { href: '#projects', label: 'Proyectos' },
-    { href: '#contact', label: 'Contacto' }
+    // { href: '/', label: 'Acerca de mí' },
+    { href: '/', hash: '#skills', label: 'Habilidades' },
+    { href: '/', hash: 'project', label: 'Proyectos' },
+    { href: '/',hash: '#contact', label: 'Contacto' }
   ];
 
   const socialLinks = [
@@ -114,10 +114,10 @@ export function Footer() {
               Navegación
             </h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
+              {quickLinks.map((link, index) => (
+                <li key={`${link.href}-${index}`}>
                   <a 
-                    href={link.href} 
+                    href={`${link.href}${link.hash || ""}`}
                     className="text-slate-600 hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <div className="w-1 h-1 rounded-full bg-slate-400 group-hover:bg-green-600 group-hover:scale-150 transition-all duration-300" />
