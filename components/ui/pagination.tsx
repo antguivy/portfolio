@@ -78,7 +78,7 @@ const buttonGroupVariants = cva("inline-flex", {
     },
   },
   defaultVariants: {
-    variant: "outline-solid",
+    variant: "outline",
     size: "sm",
   },
 });
@@ -87,7 +87,7 @@ interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement>, Variant
 
 function ButtonGroup({ 
   className, 
-  variant = "outline-solid", 
+  variant = "outline", 
   size = "sm", 
   children, 
   ...props 
