@@ -66,11 +66,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative border-slate-200/50 overflow-hidden">
-      {/* Background decorativo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.03),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.03),transparent_50%)]" />
-
+    <footer className="relative bg-card/40 overflow-hidden">
       <div className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Sección Principal */}
@@ -182,7 +178,7 @@ export function Footer() {
               onClick={scrollToTop}
               variant="outline"
               size="sm"
-              className="backdrop-blur-xs  hover:border-green-500 hover:bg-green-50 transition-all duration-300 group"
+              className="backdrop-blur-xs dark:hover:text-gray-700 dark:hover:border-green-500 dark:hover:bg-green-50 hover:border-green-500 hover:bg-green-50 transition-all duration-300 group"
             >
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
               <span className="ml-2 hidden sm:inline">Volver arriba</span>

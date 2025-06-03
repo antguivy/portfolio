@@ -84,30 +84,23 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-2">
             {menuItems.map((item, index) => (
-              <motion.div
-                key={`${item.href}-${index}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <Link href={`${item.href}${item.hash || ""}`}>
-                  <Button
-                    variant="ghost"
-                    className="group relative h-11 px-4 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  >
-                    <item.icon
-                      className={`w-4 h-4 mr-2 ${item.color} group-hover:scale-110 transition-transform duration-300`}
-                    />
-                    <span className="font-semibold text-muted-foreground group-hover:text-accent-foreground">
-                      {item.label}
-                    </span>
-                    {/* Hover underline */}
-                    <div
-                      className={`absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-chart-1 group-hover:w-8 group-hover:left-4 transition-all duration-300 rounded-full`}
-                    />
-                  </Button>
-                </Link>
-              </motion.div>
+              <Link key={index} href={`${item.href}${item.hash || ""}`}>
+                <Button
+                  variant="ghost"
+                  className="group relative h-11 px-4 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                >
+                  <item.icon
+                    className={`w-4 h-4 mr-2 ${item.color} group-hover:scale-110 transition-transform duration-300`}
+                  />
+                  <span className="font-semibold text-muted-foreground group-hover:text-accent-foreground">
+                    {item.label}
+                  </span>
+                  {/* Hover underline */}
+                  <div
+                    className={`absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-chart-1 group-hover:w-8 group-hover:left-4 transition-all duration-300 rounded-full`}
+                  />
+                </Button>
+              </Link>
             ))}
 
             {/* Theme Toggle Button */}
@@ -142,16 +135,11 @@ const Header = () => {
               className="h-11 w-11 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <motion.div
-                animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-muted-foreground" />
-                ) : (
-                  <Menu className="w-6 h-6 text-muted-foreground" />
-                )}
-              </motion.div>
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6 text-muted-foreground" />
+              ) : (
+                <Menu className="w-6 h-6 text-muted-foreground" />
+              )}
             </Button>
           </div>
         </div>
@@ -159,49 +147,35 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="md:hidden border-t border-border bg-card/95 backdrop-blur-xl"
-        >
-          <nav className="container mx-auto px-6 py-6">
-            <div className="space-y-2">
-              {menuItems.map((item, index) => (
-                <motion.div
-                  key={`${item.href}-${index}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={`${item.href}${item.hash || ""}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
-                  >
-                    <item.icon
-                      className={`w-5 h-5 ${item.color} group-hover:scale-110 transition-transform duration-300`}
-                    />
-                    <span className="font-semibold text-card-foreground group-hover:text-accent-foreground">
-                      {item.label}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
+        <nav className="container mx-auto px-6 py-6">
+          <div className="space-y-2">
+            {menuItems.map((item, index) => (
+              <Link
+                key={index}
+                href={`${item.href}${item.hash || ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
+              >
+                <item.icon
+                  className={`w-5 h-5 ${item.color} group-hover:scale-110 transition-transform duration-300`}
+                />
+                <span className="font-semibold text-card-foreground group-hover:text-accent-foreground">
+                  {item.label}
+                </span>
+              </Link>
+            ))}
 
-              {/* Divider */}
-              <div className="border-t border-border my-4" />
+            {/* Divider */}
+            <div className="border-t border-border my-4" />
 
-              {/* Additional mobile actions can go here */}
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                  Modo {theme === "dark" ? "Oscuro" : "Claro"} activado
-                </p>
-              </div>
+            {/* Additional mobile actions can go here */}
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">
+                Modo {theme === "dark" ? "Oscuro" : "Claro"} activado
+              </p>
             </div>
-          </nav>
-        </motion.div>
+          </div>
+        </nav>
       )}
 
       {/* Background blur overlay when mobile menu is open */}

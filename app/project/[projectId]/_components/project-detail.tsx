@@ -195,9 +195,9 @@ export default function ProjectDetail({
         <div className="mx-auto gap-12">
           {/* Markdown Content */}
           {markdownContent ? (
-            <Card className="p-0 overflow-hidden border-0 shadow-lg ">
+            <Card className="p-0 overflow-hidden border-0 shadow-lg bg-card">
               {/* Header estilo GitHub */}
-              <div className="  border-b px-8 py-4 flex items-center justify-between">
+              <div className="border-b border-card-foreground px-8 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <FaGithub className="w-5 h-5 text-colortext" />
                   <span className="font-semibold text-colortext">
@@ -486,7 +486,7 @@ export default function ProjectDetail({
         /* Estilos para Dark Mode */
         /* --------------------------------------------------- */
         .dark .github-markdown-body {
-          color: var(--foreground); /* Color de texto claro para dark mode */
+          color: var(--color-foreground); /* Color de texto claro para dark mode */
         }
 
         /* Importar estilos de highlight.js para sintaxis - Tema oscuro para dark mode */
