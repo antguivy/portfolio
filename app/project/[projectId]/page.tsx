@@ -19,13 +19,10 @@ interface ProjectPageProps {
 }
 
 function convertRelativeUrls(content: string, githubUrl: string): string {
-  const match = githubUrl.match(
-    /github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/
-  );
+  const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
   if (!match) return content;
 
-  const [, owner, repo, branch, folderPath] = match;
-  // const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${folderPath}`;
+  const [, owner, repo] = match;
   const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
   // Convertir imágenes con rutas relativas
   content = content.replace(
@@ -43,45 +40,6 @@ function convertRelativeUrls(content: string, githubUrl: string): string {
 
   return content;
 }
-
-// function processGitHubSpecialContent(content: string, owner: string, repo: string): string {
-//   // Convertir enlaces a issues y PRs
-//   content = content.replace(
-//     /#(\d+)/g,
-//     `[#$1](https://github.com/${owner}/${repo}/issues/$1)`
-//   );
-
-//   // Convertir menciones de usuarios
-//   content = content.replace(
-//     /@([a-zA-Z0-9-]+)/g,
-//     `[@$1](https://github.com/$1)`
-//   );
-
-//   // Procesar alertas de GitHub (> [!NOTE], > [!WARNING], etc.)
-//   content = content.replace(
-//     /^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$/gm,
-//     (match, type) => {
-//       const alertClass = {
-//         NOTE: 'note',
-//         TIP: 'tip',
-//         IMPORTANT: 'important',
-//         WARNING: 'warning',
-//         CAUTION: 'caution'
-//       }[type] || 'note';
-
-//       return `<div class="github-alert github-alert-${alertClass.toLowerCase()}">
-//         <p class="github-alert-title">${type}</p>`;
-//     }
-//   );
-
-//   // Cerrar alertas
-//   content = content.replace(
-//     /(^> \[!(?:NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][\s\S]*?)(?=\n\n|\n$|$)/gm,
-//     '$1\n</div>'
-//   );
-
-//   return content;
-// }
 
 async function getGitHubReadme(githubUrl: string) {
   try {

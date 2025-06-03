@@ -137,7 +137,7 @@ export function Projects() {
               onHoverEnd={() => handleProjectHover(null)}
               className="group"
             >
-              <Card className="relative overflow-hidden bg-card backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+              <Card className="relative overflow-hidden bg-card backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                 {/* Image Container */}
                 <div className="relative overflow-hidden aspect-video bg-linear-to-br from-gray-100 to-gray-200">
                   <Image
@@ -204,9 +204,9 @@ export function Projects() {
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-4">
+                {/* Content - Ahora con flex-grow para que ocupe el espacio disponible */}
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="mb-4 flex-grow">
                     <h3 className="text-xl font-bold mb-2 text-colortext group-hover:text-primary transition-colors duration-200 leading-tight">
                       {project.title}
                     </h3>
@@ -221,7 +221,6 @@ export function Projects() {
                       {project.technologies.slice(0, 4).map((tech) => (
                         <Badge
                           key={tech}
-                          // variant="outline"
                           className={`border font-medium text-xs px-2 py-1 rounded-full transition-colors duration-200 ${getCategoryBadgeClass(
                             project.category
                           )}`}
@@ -241,8 +240,8 @@ export function Projects() {
                     </div>
                   </div>
 
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  {/* Footer - Siempre al final */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                     <div className="flex items-center gap-2 text-colortext">
                       <Calendar className="w-4 h-4" />
                       <span className="font-medium text-sm">

@@ -36,7 +36,7 @@ export default function ProjectDetail({
           <div className="flex items-center justify-between">
             <Link
               href="/project"
-              className="flex items-center gap-2 text-colortext hover:text-gray-900 transition-colors duration-200"
+              className="flex items-center gap-2 text-colortext hover:text-colortext/80 transition-colors duration-200"
             >
               <ArrowLeft className="w-5 h-5" />
               <span className="font-bold">Volver a proyectos</span>
@@ -62,7 +62,7 @@ export default function ProjectDetail({
               {project.linkedinUrl && (
                 <Button asChild size="sm" variant="outline">
                   <Link
-                    href={project.githubUrl}
+                    href={project.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -71,6 +71,18 @@ export default function ProjectDetail({
                   </Link>
                 </Button>
               )}
+                          {project.githubUrl && (
+              <Button asChild size="lg" variant="outline">
+                <Link
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Code className="w-5 h-5 mr-2" />
+                  Ver Código
+                </Link>
+              </Button>
+            )}
             </div>
           </div>
         </div>
@@ -229,7 +241,7 @@ export default function ProjectDetail({
             </Card>
           ) : (
             <Card className="p-8 text-center">
-              <div className="text-gray-500">
+              <div className="text-colortext">
                 <Code className="w-12 h-12 mx-auto mb-4 opacity-50" />
                 <p className="text-lg font-medium mb-2">
                   Documentación en desarrollo
@@ -240,7 +252,7 @@ export default function ProjectDetail({
                 </p>
                 {project.githubUrl && (
                   <div className="mt-4">
-                    <Button asChild variant="outline">
+                    <Button asChild variant="outline" className="ring-1">
                       <Link
                         href={project.githubUrl}
                         target="_blank"
