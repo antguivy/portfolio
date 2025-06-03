@@ -25,7 +25,7 @@ const Testimonials = () => {
               <div className="mb-6">
                 <Quote className="w-8 h-8 text-primary opacity-50" />
               </div>
-              <p className="text-muted-foreground mb-6 flex-grow">
+              <p className="text-muted-foreground mb-6 grow">
                 {testimonial.content}
               </p>
               <div className="flex items-center gap-4">

@@ -4,13 +4,13 @@ import fs from "fs";
 import path from "path";
 import { projects } from "@/lib/data";
 import ProjectDetail from "./_components/project-detail";
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
+import { remark } from "remark";
+import remarkHtml from "remark-html";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -19,12 +19,14 @@ interface ProjectPageProps {
 }
 
 function convertRelativeUrls(content: string, githubUrl: string): string {
-  const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/);
+  const match = githubUrl.match(
+    /github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/
+  );
   if (!match) return content;
 
   const [, owner, repo, branch, folderPath] = match;
   // const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${folderPath}`;
-const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
+  const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
   // Convertir imágenes con rutas relativas
   content = content.replace(
     /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
@@ -32,7 +34,7 @@ const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
   );
 
   // Convertir enlaces a archivos con rutas relativas
- content = content.replace(
+  content = content.replace(
     /<video[^>]src=["'](?!https?:\/\/)([^"']+)["'][^>]>.*?<\/video>/g,
     (match, src) => {
       return match.replace(src, `${baseUrl}/${src}`);
@@ -61,12 +63,12 @@ const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main`;
 //     (match, type) => {
 //       const alertClass = {
 //         NOTE: 'note',
-//         TIP: 'tip', 
+//         TIP: 'tip',
 //         IMPORTANT: 'important',
 //         WARNING: 'warning',
 //         CAUTION: 'caution'
 //       }[type] || 'note';
-      
+
 //       return `<div class="github-alert github-alert-${alertClass.toLowerCase()}">
 //         <p class="github-alert-title">${type}</p>`;
 //     }
@@ -88,29 +90,29 @@ async function getGitHubReadme(githubUrl: string) {
 
     const [, owner, repo] = match;
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
-    
+
     const response = await fetch(apiUrl, {
       headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'Authorization': `token ${process.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3+json",
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
     });
 
     if (!response.ok) return null;
 
     const data = await response.json();
-    let markdownContent = Buffer.from(data.content, 'base64').toString('utf8');
-    
+    let markdownContent = Buffer.from(data.content, "base64").toString("utf8");
+
     // Procesar URLs relativas y contenido especial
     markdownContent = convertRelativeUrls(markdownContent, githubUrl);
     // markdownContent = processGitHubSpecialContent(markdownContent, owner, repo);
-    
+
     // Procesar markdown con todos los plugins
-    const { unified } = await import('unified');
-    const remarkParse = (await import('remark-parse')).default;
-    const remarkRehype = (await import('remark-rehype')).default;
-    const rehypeStringify = (await import('rehype-stringify')).default;
-    
+    const { unified } = await import("unified");
+    const remarkParse = (await import("remark-parse")).default;
+    const remarkRehype = (await import("remark-rehype")).default;
+    const rehypeStringify = (await import("rehype-stringify")).default;
+
     const processedContent = await unified()
       .use(remarkParse)
       .use(remarkGfm)
@@ -120,18 +122,18 @@ async function getGitHubReadme(githubUrl: string) {
       .use(rehypeKatex)
       .use(rehypeStringify)
       .process(markdownContent);
-    
+
     return processedContent.toString();
   } catch (error) {
-    console.error('Error fetching GitHub README:', error);
+    console.error("Error fetching GitHub README:", error);
     return null;
   }
 }
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
-  const {projectId} = await params
+  const { projectId } = await params;
   const project = projects.find((p) => p.id === projectId);
-  
+
   if (!project) {
     notFound();
   }

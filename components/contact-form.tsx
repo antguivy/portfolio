@@ -73,15 +73,15 @@ const ContactForm = () => {
           name="name"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <User className="w-4 h-4 text-green-600" />
+              <FormLabel className="text-sm font-semibold text-colortext flex items-center gap-2">
+                <User className="w-4 h-4 text-chart-3" />
                 Nombre completo
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Ej: Juan Pérez"
                   {...field}
-                  className="h-12 px-4 bg-slate-50/50 border-slate-200 rounded-xl focus:border-green-500 focus:ring-green-500/20 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
+                  className="h-12 px-4 bg-input border-slate-200 rounded-xl focus:border-green-500 focus:ring-chart-3 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
                   disabled={isLoading}
                 />
               </FormControl>
@@ -96,8 +96,8 @@ const ContactForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-600" />
+              <FormLabel className="text-sm font-semibold text-colortext flex items-center gap-2">
+                <Mail className="w-4 h-4 text-chart-1" />
                 Correo electrónico
               </FormLabel>
               <FormControl>
@@ -105,7 +105,7 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Ej: juan@ejemplo.com"
                   {...field}
-                  className="h-12 px-4 bg-slate-50/50 border-slate-200 rounded-xl focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
+                  className="h-12 px-4 bg-input border-slate-200 rounded-xl focus:border-blue-500 focus:ring-chart-1 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
                   disabled={isLoading}
                 />
               </FormControl>
@@ -120,15 +120,15 @@ const ContactForm = () => {
           name="message"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-purple-600" />
+              <FormLabel className="text-sm font-semibold text-colortext flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-chart-2" />
                 Tu mensaje
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Cuéntame sobre tu proyecto, idea o consulta. Mientras más detalles, mejor podré ayudarte..."
                   {...field}
-                  className="min-h-[120px] px-4 py-3 bg-slate-50/50 border-slate-200 rounded-xl focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 transition-all duration-300 placeholder:text-slate-400 resize-none"
+                  className="min-h-[120px] px-4 py-3 bg-input border-slate-200 rounded-xl focus:border-purple-500 focus:ring-chart-2 focus:ring-2 transition-all duration-300 placeholder:text-slate-400 resize-none"
                   disabled={isLoading}
                 />
               </FormControl>
@@ -142,7 +142,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full h-12 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 hover:from-green-700 hover:via-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full h-12 bg-linear-to-r from-green-600 via-blue-600 to-purple-600 hover:from-green-700 hover:via-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>
@@ -160,10 +160,10 @@ const ContactForm = () => {
 
         {/* Nota informativa */}
         <div className="pt-4 border-t border-slate-100">
-          <p className="text-xs text-slate-500 text-center leading-relaxed">
+          <p className="text-xs text-colortext text-center leading-relaxed">
             Al enviar este formulario, aceptas que me contacte contigo para responder tu consulta.
             <br />
-            <span className="text-green-600 font-medium">
+            <span className="text-chart-3 font-medium">
               Respondo en menos de 24 horas ⚡
             </span>
           </p>

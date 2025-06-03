@@ -30,34 +30,34 @@ import {
   getCategoryIcon,
 } from "@/components/functions";
 
-
 export default function AllProjects() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [hoveredProject, setHoveredProject] = useState<String | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>(''); // Nuevo estado para búsqueda
+  const [searchTerm, setSearchTerm] = useState<string>(""); // Nuevo estado para búsqueda
 
   // Memoizar proyectos filtrados con búsqueda
   const filteredProjects = useMemo(() => {
     let filtered: (typeof projects)[number][] = [...projects];
-    
+
     // Filtrar por categoría
     if (selectedCategory) {
       filtered = filtered.filter((p) => p.category === selectedCategory);
     }
-    
+
     // Filtrar por término de búsqueda
     if (searchTerm.trim()) {
       const searchLower = searchTerm.toLowerCase().trim();
-      filtered = filtered.filter((project) =>
-        project.title.toLowerCase().includes(searchLower) ||
-        project.description.toLowerCase().includes(searchLower) ||
-        project.technologies.some(tech => 
-          tech.toLowerCase().includes(searchLower)
-        ) ||
-        categories[project.category].name.toLowerCase().includes(searchLower)
+      filtered = filtered.filter(
+        (project) =>
+          project.title.toLowerCase().includes(searchLower) ||
+          project.description.toLowerCase().includes(searchLower) ||
+          project.technologies.some((tech) =>
+            tech.toLowerCase().includes(searchLower)
+          ) ||
+          categories[project.category].name.toLowerCase().includes(searchLower)
       );
     }
-    
+
     return filtered;
   }, [selectedCategory, searchTerm]);
 
@@ -87,25 +87,26 @@ export default function AllProjects() {
     setHoveredProject(projectTitle);
   }, []);
 
-  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  }, []);
+  const handleSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    },
+    []
+  );
 
   // Función para limpiar la búsqueda
   const clearSearch = useCallback(() => {
-    setSearchTerm('');
+    setSearchTerm("");
   }, []);
 
   return (
     <section id="projects" className="relative py-20 overflow-hidden">
       {/* Background simplificado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
 
       <div className="container mx-auto px-6 relative">
         {/* Search and Filters */}
-        <div className="bg-white py-4 mb-4 shadow-sm rounded-xl">
+        <div className="bg-card p-4 mb-4 shadow-xs rounded-xl">
           <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
-            
             {/* Búsqueda y Filtro Móvil */}
             <div className="flex-1 max-w-md w-full">
               <div className="flex gap-3 items-center">
@@ -116,11 +117,21 @@ export default function AllProjects() {
                     placeholder="Buscar proyectos..."
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    className="w-full pl-12 pr-12 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                    className="w-full pl-12 pr-12 py-3 border border-gray-200 rounded-xl focus:outline-hidden focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                   />
                   <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    <svg
+                      className="w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
                     </svg>
                   </div>
                   {searchTerm && (
@@ -129,8 +140,18 @@ export default function AllProjects() {
                       className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
                       aria-label="Limpiar búsqueda"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
                       </svg>
                     </button>
                   )}
@@ -140,8 +161,10 @@ export default function AllProjects() {
                 <div className="block lg:hidden relative">
                   <div className="relative">
                     <select
-                      value={selectedCategory || ''}
-                      onChange={(e) => handleCategoryChange(e.target.value || null)}
+                      value={selectedCategory || ""}
+                      onChange={(e) =>
+                        handleCategoryChange(e.target.value || null)
+                      }
                       className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
                       title="Filtrar por categoría"
                     >
@@ -152,7 +175,7 @@ export default function AllProjects() {
                         </option>
                       ))}
                     </select>
-                    
+
                     {/* Botón visual */}
                     <div className="w-12 h-12 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-xl transition-all duration-200 flex items-center justify-center relative">
                       {/* Icono principal */}
@@ -160,19 +183,39 @@ export default function AllProjects() {
                         {selectedCategory ? (
                           getCategoryIcon(selectedCategory)
                         ) : (
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                            />
                           </svg>
                         )}
                       </div>
-                      
+
                       {/* Flecha dropdown */}
                       <div className="absolute bottom-1 right-1">
-                        <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <svg
+                          className="w-3 h-3 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </div>
-                      
+
                       {/* Indicador de filtro activo */}
                       {selectedCategory && (
                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white"></div>
@@ -189,7 +232,7 @@ export default function AllProjects() {
                 onClick={() => handleCategoryChange(null)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   selectedCategory === null
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                    ? "bg-linear-to-r from-blue-600 to-purple-600 text-white"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                 }`}
               >
@@ -201,7 +244,7 @@ export default function AllProjects() {
                   onClick={() => handleCategoryChange(key)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
                     selectedCategory === key
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                      ? "bg-linear-to-r from-blue-600 to-purple-600 text-white"
                       : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                   }`}
                 >
@@ -213,9 +256,11 @@ export default function AllProjects() {
           </div>
 
           {/* Resultados de búsqueda y filtros activos */}
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-colortext">
             <span>
-              {filteredProjects.length} proyecto{filteredProjects.length !== 1 ? 's' : ''} encontrado{filteredProjects.length !== 1 ? 's' : ''}
+              {filteredProjects.length} proyecto
+              {filteredProjects.length !== 1 ? "s" : ""} encontrado
+              {filteredProjects.length !== 1 ? "s" : ""}
             </span>
 
             {/* Filtros activos */}
@@ -228,8 +273,18 @@ export default function AllProjects() {
                     className="hover:bg-blue-200 rounded p-0.5 transition-colors"
                     aria-label="Quitar filtro de búsqueda"
                   >
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -237,17 +292,33 @@ export default function AllProjects() {
 
               {selectedCategory && (
                 <div className="flex items-center gap-1 bg-purple-100 text-purple-800 px-2 py-1 rounded-md">
-                  <span>Categoría: {categories[selectedCategory as keyof typeof categories].name}</span>
+                  <span>
+                    Categoría:{" "}
+                    {
+                      categories[selectedCategory as keyof typeof categories]
+                        .name
+                    }
+                  </span>
                   <button
                     onClick={() => handleCategoryChange(null)}
                     className="hover:bg-purple-200 rounded p-0.5 transition-colors"
                     aria-label="Quitar filtro de categoría"
                   >
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
-                  </div>
+                </div>
               )}
             </div>
           </div>
@@ -264,7 +335,9 @@ export default function AllProjects() {
             >
               {filteredProjects.map((project) => (
                 <motion.div
-                  key={`${project.id}-${selectedCategory || "all"}-${searchTerm}`}
+                  key={`${project.id}-${
+                    selectedCategory || "all"
+                  }-${searchTerm}`}
                   variants={itemVariants}
                   layout
                   whileHover={{ y: -8 }}
@@ -272,9 +345,9 @@ export default function AllProjects() {
                   onHoverEnd={() => handleProjectHover(null)}
                   className="group"
                 >
-                  <Card className="relative overflow-hidden bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                  <Card className="relative overflow-hidden bg-card backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                     {/* Image Container */}
-                    <div className="relative overflow-hidden aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
+                    <div className="relative overflow-hidden aspect-video bg-linear-to-br from-gray-100 to-gray-200">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -288,15 +361,15 @@ export default function AllProjects() {
 
                       {/* Category Badge */}
                       <div className="absolute bottom-2 left-2">
-                        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-md">
+                        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground backdrop-blur-xs shadow-md">
                           <div
-                            className={`p-1 rounded-full text-white bg-gradient-to-r ${getCategoryColor(
+                            className={`p-1 rounded-full text-white bg-linear-to-r ${getCategoryColor(
                               project.category
                             )}`}
                           >
                             {getCategoryIcon(project.category)}
                           </div>
-                          <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                          <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                             {categories[project.category].name}
                           </span>
                         </div>
@@ -342,10 +415,10 @@ export default function AllProjects() {
                     {/* Content */}
                     <div className="p-6">
                       <div className="mb-4">
-                        <h3 className="text-xl font-bold mb-2 text-slate-900 group-hover:text-blue-700 transition-colors duration-200 leading-tight">
+                        <h3 className="text-xl font-bold mb-2 text-colortext group-hover:text-primary transition-colors duration-200 leading-tight">
                           {project.title}
                         </h3>
-                        <p className="text-slate-600 leading-relaxed text-sm">
+                        <p className="text-colortext/90 leading-relaxed text-sm">
                           {project.description}
                         </p>
                       </div>
@@ -356,6 +429,7 @@ export default function AllProjects() {
                           {project.technologies.slice(0, 4).map((tech) => (
                             <Badge
                               key={tech}
+                              // variant="outline"
                               className={`border font-medium text-xs px-2 py-1 rounded-full transition-colors duration-200 ${getCategoryBadgeClass(
                                 project.category
                               )}`}
@@ -377,7 +451,7 @@ export default function AllProjects() {
 
                       {/* Footer */}
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className="flex items-center gap-2 text-slate-500">
+                        <div className="flex items-center gap-2 text-colortext">
                           <Calendar className="w-4 h-4" />
                           <span className="font-medium text-sm">
                             {project.date}
@@ -388,7 +462,7 @@ export default function AllProjects() {
                           className="block h-full"
                           prefetch={false}
                         >
-                          <div className="flex items-center gap-1.5 text-blue-600 opacity-60 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer hover:underline hover:underline-offset-4">
+                          <div className="flex items-center gap-1.5 text-primary opacity-60 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer hover:underline hover:underline-offset-4">
                             {hoveredProject === project.title && (
                               <span className="text-sm font-medium">Abrir</span>
                             )}
@@ -410,15 +484,26 @@ export default function AllProjects() {
             >
               <div className="mx-auto max-w-md">
                 <div className="w-16 h-16 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.467-.881-6.08-2.33" />
+                  <svg
+                    className="w-8 h-8 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.467-.881-6.08-2.33"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   No se encontraron proyectos
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  No hay proyectos que coincidan con tu búsqueda{selectedCategory ? ' y filtro' : ''}.
+                  No hay proyectos que coincidan con tu búsqueda
+                  {selectedCategory ? " y filtro" : ""}.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   {searchTerm && (

@@ -14,15 +14,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background decorativo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.06),transparent_50%)]" />
-      <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,rgba(139,92,246,0.06),transparent_50%)]" />
-
-      {/* Elementos decorativos flotantes */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse delay-1000" />
-
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -37,7 +28,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg border border-white/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20"
             >
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-sm font-semibold text-slate-700">
@@ -53,8 +44,8 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-5xl md:text-7xl font-black leading-tight"
               >
-                <span className="block text-slate-900">Hola, soy</span>
-                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="block text-foreground ">Hola, soy</span>
+                <span className="block bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Anthony
                 </span>
               </motion.h1>
@@ -63,16 +54,17 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-2xl"
+                className="text-xl md:text-2xl text-secondary-foreground leading-relaxed max-w-2xl"
               >
                 <span className="font-semibold text-blue-600">
-                  Analista de Datos Junior
+                  Data Engineer & ML Engineer
                 </span>{" "}
-                con experiencia en{" "}
+                con background en{" "}
                 <span className="font-semibold text-purple-600">
-                  Desarrollo Web
+                  Ingeniería Industrial y Desarrollo SaaS
                 </span>
-                . Transformo datos en insights y código en experiencias.
+                . Enfocado en arquitecturas de datos, streaming en tiempo real y
+                soluciones de ML.
               </motion.p>
             </div>
 
@@ -85,7 +77,7 @@ export function Hero() {
             >
               <Link href="/#contact">
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg group"
+                  className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg group"
                   onClick={handleContactClick}
                 >
                   <Mail className="w-5 h-5 mr-2" />
@@ -93,16 +85,6 @@ export function Hero() {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </Button>
               </Link>
-
-              {/* <Link href="/cv.pdf" target="_blank">
-                <Button
-                  variant="outline"
-                  className="px-8 py-4 rounded-full font-semibold border-2 border-slate-300 hover:border-blue-500 hover:bg-blue-50 transition-all duration-300 text-lg"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Descargar CV
-                </Button>
-              </Link> */}
             </motion.div>
 
             {/* Social Links */}
@@ -117,14 +99,14 @@ export function Hero() {
                 <Link
                   href="https://www.linkedin.com/in/antguivy/"
                   target="_blank"
-                  className="p-3 rounded-full bg-white/80 backdrop-blur-sm shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                  className="p-3 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
                 >
                   <FaLinkedin className="w-5 h-5 text-blue-600 group-hover:text-blue-700" />
                 </Link>
                 <Link
                   href="https://github.com/antguivy"
                   target="_blank"
-                  className="p-3 rounded-full bg-white/80 backdrop-blur-sm shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                  className="p-3 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
                 >
                   <FaGithub className="w-5 h-5 text-slate-700 group-hover:text-slate-900" />
                 </Link>
@@ -141,11 +123,11 @@ export function Hero() {
           >
             <div className="relative">
               {/* Decorative elements behind image */}
-              <div className="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
+              <div className="absolute -top-4 -left-4 w-72 h-72 bg-linear-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse" />
+              <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-linear-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
 
               {/* Main image container */}
-              <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+              <div className="relative bg-white/10 backdrop-blur-xs rounded-3xl p-8 shadow-2xl border border-white/20">
                 <Image
                   src="/hero.png"
                   alt="Anthony - Data Analyst & Web Developer"
