@@ -1,6 +1,22 @@
 import { Project, Categories } from "./types";
 
 export const projects: Project[] = [
+  {
+    id: "anomalies-detection-realtime-quix",
+    title: "Detección de Anomalías en la Bolsa en Tiempo Real",
+    category: "data-engineering",
+    description: "Sistema avanzado de detección de anomalías en tiempo real para datos financieros de NASDAQ. Implementa un pipeline completo con streaming de datos, modelos de ML ensemble y visualización interactiva para identificar patrones anómalos en trades de acciones.",
+    technologies: ["Python", "Quix", "scikit-learn", "Streamlit", "pandas", "numpy", "Databento"],
+    image:
+      "https://res.cloudinary.com/dbo6tkhor/image/upload/v1749098927/projects/Screenshot_2025-06-04_225856_ywosd9.png",
+    demoUrl: "",
+    githubUrl: "https://github.com/antguivy/anomalies-detection-realtime-quix",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/antguivy_powerbi-dashboard-datavisualization-activity-7306000340183646210-UPmE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
+    date: "2025-06-04",
+    featured: true,
+    status: "deployed",
+  },
     {
     id: "dashboard-logistics-insights",
     title: "Logistics and Revenue Insights",
