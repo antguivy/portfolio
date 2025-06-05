@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Anthony Villazana | Data Analyst.",
+  title: "Anthony Villazana | Data Engineer.",
   // description: "Fullstack developer specializing in modern web technologies.",
 };
 
