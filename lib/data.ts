@@ -4,23 +4,24 @@ export const projects: Project[] = [
   {
     id: "anomalies-detection-realtime-quix",
     title: "Detección de Anomalías en la Bolsa en Tiempo Real",
-    category: "data-engineering",
+    category: ["data-engineering", "machine-learning"],
     description: "Sistema avanzado de detección de anomalías en tiempo real para datos financieros de NASDAQ. Implementa un pipeline completo con streaming de datos, modelos de ML ensemble y visualización interactiva para identificar patrones anómalos en trades de acciones.",
-    technologies: ["Python", "Quix", "scikit-learn", "Streamlit", "pandas", "numpy", "Databento"],
+    technologies: ["Python", "Quix", "Redpanda", "Docker", "Plotly", "scikit-learn", "Streamlit", "pandas"],
     image:
       "https://res.cloudinary.com/dbo6tkhor/image/upload/v1749098927/projects/Screenshot_2025-06-04_225856_ywosd9.png",
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/anomalies-detection-realtime-quix",
     linkedinUrl:
       "https://www.linkedin.com/posts/antguivy_powerbi-dashboard-datavisualization-activity-7306000340183646210-UPmE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
-    date: "2025-06-04",
+    date: "04-06-2025",
     featured: true,
     status: "deployed",
+    public: false
   },
     {
     id: "dashboard-logistics-insights",
     title: "Logistics and Revenue Insights",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description: "Dashboard enfocado en conocimientos logísticos y de ingresos en distintas regiones. Este proyecto fue inspirado por una publicación en LinkedIn de Injae Park y fue desarrollado utilizando datos históricos de Kaggle.",
     technologies: ["Power BI", "Figma", "Tabular Editor"],
     image:
@@ -29,14 +30,15 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/antguivy/dashboard-logistics-insights",
     linkedinUrl:
       "https://www.linkedin.com/posts/antguivy_powerbi-dashboard-datavisualization-activity-7306000340183646210-UPmE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
-    date: "2025-03-13",
+    date: "13-03-2025",
     featured: true,
     status: "deployed",
+    public: true
   },
   {
     id: "dashboard-ipd-peru-2025",
     title: "Data Storytelling IPD",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description: "Dashboard Interactivo que analiza el desempeño internacional de las federaciones deportivas peruanas durante el periodo 2014-2023.",
     technologies: ["Power BI", "Figma"],
     image:
@@ -45,14 +47,15 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/antguivy/dashboard-ipd-peru-2025/tree/main",
     linkedinUrl:
       "https://www.linkedin.com/posts/antguivy_datastorytelling-powerbi-dashboarddesign-activity-7300050819893084161-OuB3?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
-    date: "2025-02-25",
+    date: "25-02-2025",
     featured: true,
     status: "deployed",
+    public: true
   },
   {
     id: "etl-falabella-playa-2025",
     title: "ETL para Análisis de Descripciones de Productos de Falabella",
-    category: "data-engineering",
+    category: ["data-engineering"],
     description:
       "Pipeline ETL para el análisis de datos de productos de temporada de playa.",
     technologies: ["Python", "Análisis de Datos", "Gemini AI", "Web Scraping"],
@@ -61,14 +64,15 @@ export const projects: Project[] = [
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/etl-falabella-playa-2025",
     linkedinUrl: "https://www.linkedin.com/posts/antguivy_etl-dataanalysis-webscraping-activity-7298021334402420738-pUhi?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
-    date: "2025-02-19",
+    date: "19-02-2025",
     featured: true,
     status: "deployed",
+    public: true
   },
   {
     id: "segmentacion-productos-kmeans-2025",
     title: "Segmentación de Productos con K-means",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description:
       "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
     technologies: ["Sklearn", "Pandas", "SqlServer"],
@@ -77,14 +81,15 @@ export const projects: Project[] = [
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/segmentacion-productos-kmeans-2025",
     linkedinUrl: null,
-    date: "2025-02-10",
+    date: "10-02-2025",
     featured: true,
     status: "deployed",
+    public: true
   },
   {
     id: "dashboard-recursos-humanos-2022",
     title: "Dashboard para Recursos Humanos",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description:
       "Dashboard interactivo para la gestión de Recursos Humanos, proporcionando métricas clave sobre ausencias, rotación de personal y descuentos por sucursal.",
     technologies: ["Python", "Pandas", "Tableau"],
@@ -94,14 +99,15 @@ export const projects: Project[] = [
       "https://public.tableau.com/views/Book2_17380410342780/Dashboard1?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
     githubUrl: "",
     linkedinUrl: null,
-    date: "2025-01-28",
+    date: "28-01-2025",
     featured: false,
     status: "deployed",
+    public: true
   },
   {
     id: "web-scraping-bvl-2025",
     title: "Web Scraping BVL (Bolsa de Valores de Lima)",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description:
       "Extracción de datos públicos para un estudio externo, cuyo objetivo fue estimar la eficiencia financiera de las empresas listadas en la BVL.",
     technologies: ["Selenium", "Pandas"],
@@ -110,14 +116,15 @@ export const projects: Project[] = [
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/web-scraping-bvl-2025",
     linkedinUrl: null,
-    date: "2025-01-26",
+    date: "26-01-2025",
     featured: true,
     status: "deployed",
+    public: true
   },
   {
     id: "eda-juegos-google-play-2021",
     title: "EDA para juegos en Google Play",
-    category: "data-analysis",
+    category: ["data-analysis"],
     description:
       "Análisis Exploratorio de Datos (EDA) de los mejores juegos en Google Play, revelando información sobre categorías, calificaciones, instalaciones y popularidad.",
     technologies: ["Python", "Streamlit", "Plotly", "Pandas"],
@@ -126,9 +133,10 @@ export const projects: Project[] = [
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/eda-juegos-google-play-2021",
     linkedinUrl: null,
-    date: "2021-05-05",
+    date: "05-05-2021",
     featured: true,
     status: "deployed",
+    public: true
   },
 
   // {
@@ -255,6 +263,12 @@ export const categories: Categories = {
     color: "#8B5CF6",
     icon: "🤖",
   },
+  "machine-learning": {
+    name: "Machine Learning",
+    description: "Modelos, entrenamiento y aplicaciones de aprendizaje automático",
+    color: "#F59E0B",
+    icon: "🧠",
+  }
 };
 
 export const technologies = [

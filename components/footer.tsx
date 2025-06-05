@@ -31,19 +31,19 @@ export function Footer() {
       name: "GitHub",
       href: "https://github.com/antguivy",
       icon: FaGithub,
-      color: "hover:bg-gray-900 hover:text-white hover:border-gray-900",
+      color: "hover:dark:bg-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900",
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/antguivy/",
       icon: FaLinkedin,
-      color: "hover:bg-blue-600 hover:text-white hover:border-blue-600",
+      color: "hover:dark:bg-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600",
     },
     {
       name: "Email",
       href: "mailto:antguivy@gmail.com",
       icon: Mail,
-      color: "hover:bg-green-600 hover:text-white hover:border-green-600",
+      color: "hover:dark:bg-green-600 hover:bg-green-600 hover:text-white hover:border-green-600",
     },
   ];
 

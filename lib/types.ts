@@ -2,13 +2,13 @@
 export type ProjectStatus = "deployed" | "in-progress" | "planned" | "archived";
 
 // Tipo para las categorías disponibles
-export type ProjectCategory = "data-analysis" | "data-engineering" | "ai-development";
+export type ProjectCategory = "data-analysis" | "data-engineering" | "ai-development" | "machine-learning";
 
 // Tipo para un proyecto individual
 export interface Project {
   id: string;
   title: string;
-  category: ProjectCategory;
+  category: ProjectCategory[];
   description: string;
   technologies: string[];
   image: string;
@@ -18,6 +18,7 @@ export interface Project {
   date: string; // Podrías usar Date si prefieres
   featured: boolean;
   status: ProjectStatus;
+  public: boolean
 }
 
 // Tipo para la información de una categoría

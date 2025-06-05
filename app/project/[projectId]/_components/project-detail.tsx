@@ -65,24 +65,24 @@ export default function ProjectDetail({
                     href={project.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:dark:bg-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600"
                   >
-                    <FaLinkedin className="w-4 h-4 mr-2" />
-                    LinkedIn
+                    <FaLinkedin className="w-4 h-4" />
                   </Link>
                 </Button>
               )}
-                          {project.githubUrl && (
-              <Button asChild size="lg" variant="outline">
-                <Link
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Code className="w-5 h-5 mr-2" />
-                  Ver Código
-                </Link>
-              </Button>
-            )}
+              {project.githubUrl && project.public && (
+                <Button asChild size="sm" variant="outline">
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:dark:bg-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900"
+                  >
+                    <Code className="w-5 h-5" />
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -103,46 +103,102 @@ export default function ProjectDetail({
             </>
           )}
 
-          {/* Category Badge */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground shadow-md border">
-              <div
-                className={`p-1 rounded-full text-white bg-linear-to-r ${getCategoryColor(
-                  project.category
-                )}`}
-              >
-                {getCategoryIcon(project.category)}
+          {/* Category Badge and Status/Date - Desktop */}
+          <div className="hidden sm:flex items-center justify-between mb-6">
+            {/* Left - Categories */}
+            <div className="flex gap-2 flex-wrap">
+              {project.category.map((cat) => (
+                <div
+                  key={cat}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground shadow-md border"
+                >
+                  <div
+                    className={`p-1 rounded-full text-white bg-gradient-to-r ${getCategoryColor(cat)}`}
+                  >
+                    {getCategoryIcon(cat)}
+                  </div>
+                  <span className="text-sm font-bold text-slate-600 uppercase tracking-wide">
+                    {categories[cat].name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Right - Date and Status */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-colortext">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm font-medium">{project.date}</span>
               </div>
-              <span className="text-sm font-bold text-slate-600 uppercase tracking-wide">
-                {project.category}
-              </span>
-            </div>
 
-            <div className="flex items-center gap-2 text-colortext">
-              <Calendar className="w-4 h-4" />
-              <span className="text-sm font-medium">{project.date}</span>
-            </div>
-
-            {project.status && (
-              <div>
+              {project.status && (
                 <Badge
                   variant="outline"
                   className={`${
                     project.status === "deployed"
-                      ? "bg-green-100 text-green-800"
+                      ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-100"
                       : project.status === "in-progress"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-gray-100 text-gray-800"
-                  }`}
+                      ? "bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100"
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                  } transition-colors duration-200`}
                 >
                   {project.status === "deployed"
-                    ? "Desplegado"
+                    ? "Completado"
                     : project.status === "in-progress"
                     ? "En desarrollo"
                     : project.status}
                 </Badge>
+              )}
+            </div>
+          </div>
+
+          {/* Category Badge and Status/Date - Mobile */}
+          <div className="flex sm:hidden flex-col gap-3 mb-6">
+            {/* Categories - Mobile */}
+            <div className="flex gap-2 flex-wrap">
+              {project.category.map((cat) => (
+                <div
+                  key={cat}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground shadow-md border"
+                >
+                  <div
+                    className={`p-1 rounded-full text-white bg-gradient-to-r ${getCategoryColor(cat)}`}
+                  >
+                    {getCategoryIcon(cat)}
+                  </div>
+                  <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">
+                    {categories[cat].name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Status and Date - Mobile */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-colortext">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm font-medium">{project.date}</span>
               </div>
-            )}
+
+              {project.status && (
+                <Badge
+                  variant="outline"
+                  className={`${
+                    project.status === "deployed"
+                      ? "bg-green-50 text-green-700 border-green-200"
+                      : project.status === "in-progress"
+                      ? "bg-amber-50 text-amber-700 border-amber-200"
+                      : "bg-slate-50 text-slate-700 border-slate-200"
+                  }`}
+                >
+                  {project.status === "deployed"
+                    ? "Completado"
+                    : project.status === "in-progress"
+                    ? "En desarrollo"
+                    : project.status}
+                </Badge>
+              )}
+            </div>
           </div>
 
           {/* Technologies */}
@@ -150,46 +206,12 @@ export default function ProjectDetail({
             {project.technologies?.map((tech: string) => (
               <Badge
                 key={tech}
-                className={`font-medium px-3 py-1 ${getCategoryBadgeClass(
-                  project.category
-                )}`}
+                className="font-medium px-3 py-1 bg-slate-100 text-slate-800 border border-slate-200 hover:bg-slate-200 transition-all duration-200 hover:scale-105"
               >
                 {tech}
               </Badge>
             ))}
           </div>
-
-          {/* Action Buttons */}
-          {/* <div className="flex flex-wrap gap-4">
-            {project.demoUrl && (
-              <Button
-                asChild
-                size="lg"
-                className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-              >
-                <Link
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Globe className="w-5 h-5 mr-2" />
-                  Ver Demo en Vivo
-                </Link>
-              </Button>
-            )}
-            {project.githubUrl && (
-              <Button asChild size="lg" variant="outline">
-                <Link
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Code className="w-5 h-5 mr-2" />
-                  Ver Código
-                </Link>
-              </Button>
-            )}
-          </div> */}
         </div>
 
         <div className="mx-auto gap-12">
@@ -204,7 +226,7 @@ export default function ProjectDetail({
                     README.md
                   </span>
                 </div>
-                {project.githubUrl && (
+                {project.githubUrl && project.public ? (
                   <Button
                     asChild
                     variant="outline"
@@ -219,6 +241,10 @@ export default function ProjectDetail({
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Ver en GitHub
                     </Link>
+                  </Button>
+                ) : (
+                  <Button size="sm" className="bg-chart-3 hover:bg-chart-3/80">
+                    Privado
                   </Button>
                 )}
               </div>
