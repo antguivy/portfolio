@@ -27,7 +27,7 @@ export const projects: Project[] = [
     date: "06-06-2025",
     featured: true,
     status: "deployed",
-    public: false,
+    public: true,
   },
   {
     id: "anomalies-detection-realtime-quix",
