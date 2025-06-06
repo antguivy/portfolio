@@ -2,11 +2,49 @@ import { Project, Categories } from "./types";
 
 export const projects: Project[] = [
   {
+    id: "conversational-chat-db-bigquery",
+    title: "Chat Conversacional + Bigquery + IA",
+    category: ["ai-development"],
+    description:
+      "Chat inteligente que permite a usuarios no técnicos explorar datos de salud pública con IA generativa. El sistema convierte preguntas en lenguaje natural a SQL optimizado, analiza millones de registros en BigQuery y genera visualizaciones automáticas con alto rendimiento y manejo de casos complejos.",
+    technologies: [
+      "Python",
+      "Streamlit",
+      "BigQuery",
+      "Gemini AI",
+      "Plotly",
+      "pandas",
+      "Google Cloud Platform",
+      "SQL",
+      "Prompt Engineering"
+    ],
+    image:
+      "https://github.com/antguivy/conversational-chat-db-bigquery/blob/main/docs/Screenshot%202025-06-06%20014200.png?raw=true",
+    demoUrl: "",
+    githubUrl: "https://github.com/antguivy/conversational-chat-db-bigquery/tree/main",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/antguivy_inteligenciaartificial-geminiai-python-activity-7336660086565621760-qv2A?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
+    date: "06-06-2025",
+    featured: true,
+    status: "deployed",
+    public: false,
+  },
+  {
     id: "anomalies-detection-realtime-quix",
     title: "Detección de Anomalías en la Bolsa en Tiempo Real",
     category: ["data-engineering", "machine-learning"],
-    description: "Sistema avanzado de detección de anomalías en tiempo real para datos financieros de NASDAQ. Implementa un pipeline completo con streaming de datos, modelos de ML ensemble y visualización interactiva para identificar patrones anómalos en trades de acciones.",
-    technologies: ["Python", "Quix", "Redpanda", "Docker", "Plotly", "scikit-learn", "Streamlit", "pandas"],
+    description:
+      "Sistema avanzado de detección de anomalías en tiempo real para datos financieros de NASDAQ. Implementa un pipeline completo con streaming de datos, modelos de ML ensemble y visualización interactiva para identificar patrones anómalos en trades de acciones.",
+    technologies: [
+      "Python",
+      "Quix",
+      "Redpanda",
+      "Docker",
+      "Plotly",
+      "scikit-learn",
+      "Streamlit",
+      "pandas",
+    ],
     image:
       "https://res.cloudinary.com/dbo6tkhor/image/upload/v1749098927/projects/Screenshot_2025-06-04_225856_ywosd9.png",
     demoUrl: "",
@@ -16,13 +54,14 @@ export const projects: Project[] = [
     date: "04-06-2025",
     featured: true,
     status: "deployed",
-    public: false
+    public: false,
   },
-    {
+  {
     id: "dashboard-logistics-insights",
     title: "Logistics and Revenue Insights",
     category: ["data-analysis"],
-    description: "Dashboard enfocado en conocimientos logísticos y de ingresos en distintas regiones. Este proyecto fue inspirado por una publicación en LinkedIn de Injae Park y fue desarrollado utilizando datos históricos de Kaggle.",
+    description:
+      "Dashboard enfocado en conocimientos logísticos y de ingresos en distintas regiones. Este proyecto fue inspirado por una publicación en LinkedIn de Injae Park y fue desarrollado utilizando datos históricos de Kaggle.",
     technologies: ["Power BI", "Figma", "Tabular Editor"],
     image:
       "https://github.com/antguivy/dashboard-logistics-insights/blob/main/dashboard.png?raw=true",
@@ -33,13 +72,14 @@ export const projects: Project[] = [
     date: "13-03-2025",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "dashboard-ipd-peru-2025",
     title: "Data Storytelling IPD",
     category: ["data-analysis"],
-    description: "Dashboard Interactivo que analiza el desempeño internacional de las federaciones deportivas peruanas durante el periodo 2014-2023.",
+    description:
+      "Dashboard Interactivo que analiza el desempeño internacional de las federaciones deportivas peruanas durante el periodo 2014-2023.",
     technologies: ["Power BI", "Figma"],
     image:
       "https://github.com/antguivy/dashboard-ipd-peru-2025/blob/main/docs/dashboard_ss.png?raw=true",
@@ -50,7 +90,7 @@ export const projects: Project[] = [
     date: "25-02-2025",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "etl-falabella-playa-2025",
@@ -63,11 +103,12 @@ export const projects: Project[] = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Falabella.svg/320px-Falabella.svg.png",
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/etl-falabella-playa-2025",
-    linkedinUrl: "https://www.linkedin.com/posts/antguivy_etl-dataanalysis-webscraping-activity-7298021334402420738-pUhi?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/antguivy_etl-dataanalysis-webscraping-activity-7298021334402420738-pUhi?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     date: "19-02-2025",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "segmentacion-productos-kmeans-2025",
@@ -84,7 +125,7 @@ export const projects: Project[] = [
     date: "10-02-2025",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "dashboard-recursos-humanos-2022",
@@ -102,7 +143,7 @@ export const projects: Project[] = [
     date: "28-01-2025",
     featured: false,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "web-scraping-bvl-2025",
@@ -119,7 +160,7 @@ export const projects: Project[] = [
     date: "26-01-2025",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
   {
     id: "eda-juegos-google-play-2021",
@@ -136,7 +177,7 @@ export const projects: Project[] = [
     date: "05-05-2021",
     featured: true,
     status: "deployed",
-    public: true
+    public: true,
   },
 
   // {
@@ -265,10 +306,11 @@ export const categories: Categories = {
   },
   "machine-learning": {
     name: "Machine Learning",
-    description: "Modelos, entrenamiento y aplicaciones de aprendizaje automático",
+    description:
+      "Modelos, entrenamiento y aplicaciones de aprendizaje automático",
     color: "#F59E0B",
     icon: "🧠",
-  }
+  },
 };
 
 export const technologies = [
