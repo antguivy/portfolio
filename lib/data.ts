@@ -19,7 +19,7 @@ export const projects: Project[] = [
       "Prompt Engineering"
     ],
     image:
-      "https://github.com/antguivy/conversational-chat-db-bigquery/blob/main/docs/ss.png?raw=true",
+      "https://github.com/antguivy/conversational-chat-db-bigquery/blob/main/docs/ss-bg.png?raw=true",
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/conversational-chat-db-bigquery/tree/main",
     linkedinUrl:
