@@ -2,6 +2,33 @@ import { Project, Categories } from "./types";
 
 export const projects: Project[] = [
   {
+    id: "elt-opensky-flydata",
+    title: "Pipeline de Datos de Vuelos - Arquitectura ELT",
+    category: ["data-engineering"],
+    description:
+      "Pipeline de datos robusto que ingesta información de vuelos actuales desde OpenSky Network API utilizando procesamiento por lotes. Implementa patrones ELT modernos con Airflow para orquestación, dbt para transformaciones, SODA para validación de calidad y BigQuery como almacén analítico, optimizado para el contexto peruano.",
+    technologies: [
+      "Python",
+      "Apache Airflow",
+      "dbt",
+      "SODA",
+      "BigQuery",
+      "Astronomer Cosmos",
+      "Google Cloud Platform",
+      "OpenSky API",
+      "SQL"
+    ],
+    image:
+      "https://media.licdn.com/dms/image/v2/D4E22AQF9Wnu9sYXrBA/feedshare-shrink_800/B4EZdtX0ZMHsAg-/0/1749886650861?e=1752710400&v=beta&t=Sk5ko78JGDG74e1AYqcdfWwvR4wNZlbScF4mFD_D8FU",
+    demoUrl: "",
+    githubUrl: "https://github.com/antguivy/elt-opensky-flydata",
+    linkedinUrl: "",
+    date: "14-06-2025",
+    featured: true,
+    status: "deployed",
+    public: false,
+  },
+  {
     id: "conversational-chat-db-bigquery",
     title: "Chat Conversacional + Bigquery + IA",
     category: ["ai-development"],
@@ -16,14 +43,15 @@ export const projects: Project[] = [
       "pandas",
       "Google Cloud Platform",
       "SQL",
-      "Prompt Engineering"
+      "Prompt Engineering",
     ],
     image:
       "https://github.com/antguivy/conversational-chat-db-bigquery/blob/main/docs/ss-bg.png?raw=true",
     demoUrl: "",
-    githubUrl: "https://github.com/antguivy/conversational-chat-db-bigquery/tree/main",
+    githubUrl:
+      "https://github.com/antguivy/conversational-chat-db-bigquery/tree/main",
     linkedinUrl:
-      "https://www.linkedin.com/posts/antguivy_inteligenciaartificial-geminiai-python-activity-7336660086565621760-qv2A?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
+      "https://www.linkedin.com/posts/antguivy_inteligenciaartificial-bigquery-geminiai-activity-7337840993506918400-J-ug?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     date: "06-06-2025",
     featured: true,
     status: "deployed",
