@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import React, { useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,147 +14,122 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+      <div className="container mx-auto px-6 pt-20 pb-20 relative z-10">
+        <div className="flex items-center justify-center min-h-[70vh]">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-12 text-center max-w-5xl mx-auto"
           >
-            {/* Greeting Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20"
-            >
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-slate-700">
-                Disponible para proyectos
-              </span>
-            </motion.div>
-
-            {/* Main Title */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-5xl md:text-7xl font-black leading-tight"
+                className="text-5xl md:text-7xl lg:text-6xl font-black leading-tight"
               >
-                <span className="block text-foreground ">Hola, soy</span>
-                <span className="block bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="block text-foreground mb-2"
+                >
+                  Hola, soy
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+                >
                   Anthony
-                </span>
+                </motion.span>
               </motion.h1>
 
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-2xl text-secondary-foreground leading-relaxed max-w-2xl"
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="space-y-4"
               >
-                <span className="font-semibold text-blue-600">
-                  Data Engineer & ML Engineer
-                </span>{" "}
-                con background en{" "}
-                <span className="font-semibold text-purple-600">
-                  Ingeniería Industrial y Desarrollo SaaS
-                </span>
-                . Enfocado en arquitecturas de datos, streaming en tiempo real y
-                soluciones de ML.
-              </motion.p>
-            </div>
+                <p className="text-2xl md:text-3xl font-bold text-slate-700 leading-relaxed">
+                  <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                    Data Engineer & Analytics Engineer
+                  </span>
+                </p>
+                <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl mx-auto">
+                  Con background en{" "}
+                  <span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Ingeniería Industrial y Desarrollo SaaS
+                  </span>
+                  . Especializado en pipelines de datos, visualizaciones avanzadas y soluciones de ML end-to-end.
+                </p>
 
-            {/* CTA Buttons */}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="pt-4"
+                >
+                  <Link href="/#contact">
+                    <Button
+                      className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-10 py-6 rounded-2xl font-bold shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 text-xl group border-0 overflow-hidden"
+                      onClick={handleContactClick}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                      <Mail className="w-6 h-6 mr-3" />
+                      Contáctame
+                      <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                    </Button>
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="flex items-center justify-center gap-6 pt-2"
+                >
+                  <div className="flex gap-4">
+                    <Link
+                      href="https://www.linkedin.com/in/antguivy/"
+                      target="_blank"
+                      className="p-3 rounded-2xl bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                    >
+                      <FaLinkedin className="w-5 h-5 text-blue-600 group-hover:text-blue-700" />
+                    </Link>
+                    <Link
+                      href="https://github.com/antguivy"
+                      target="_blank"
+                      className="p-3 rounded-2xl bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                    >
+                      <FaGithub className="w-5 h-5 text-slate-700 group-hover:text-slate-900" />
+                    </Link>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 1, delay: 1.2 }}
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
             >
-              <Link href="/#contact">
-                <Button
-                  className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg group"
-                  onClick={handleContactClick}
-                >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Contáctame
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex items-center gap-4 pt-4"
-            >
-              <span className="text-slate-500 font-medium">Sígueme:</span>
-              <div className="flex gap-3">
-                <Link
-                  href="https://www.linkedin.com/in/antguivy/"
-                  target="_blank"
-                  className="p-3 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-                >
-                  <FaLinkedin className="w-5 h-5 text-blue-600 group-hover:text-blue-700" />
-                </Link>
-                <Link
-                  href="https://github.com/antguivy"
-                  target="_blank"
-                  className="p-3 rounded-full bg-white/80 backdrop-blur-xs shadow-lg border border-white/20 hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-                >
-                  <FaGithub className="w-5 h-5 text-slate-700 group-hover:text-slate-900" />
-                </Link>
+              <div className="flex flex-col items-center gap-3 text-foreground">
+                <span className="text-sm font-medium tracking-wide">Scroll para explorar</span>
+                <div className="relative w-6 h-12 border-2 border-slate-300 rounded-full flex justify-center bg-white/50 backdrop-blur-sm">
+                  <motion.div
+                    className="w-1.5 h-4 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mt-2"
+                    animate={{ y: [0, 16, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="flex justify-center lg:justify-end relative"
-          >
-            <div className="relative">
-              {/* Decorative elements behind image */}
-              <div className="absolute -top-4 -left-4 w-72 h-72 bg-linear-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-linear-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
-
-              {/* Main image container */}
-              <div className="relative bg-white/10 backdrop-blur-xs rounded-3xl p-8 shadow-2xl border border-white/20">
-                <Image
-                  src="/hero.png"
-                  alt="Anthony - Data Analyst & Web Developer"
-                  width={450}
-                  height={450}
-                  priority
-                  className="relative z-10 drop-shadow-2xl"
-                />
-              </div>
-            </div>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2 text-slate-400">
-            <span className="text-sm font-medium">Scroll para explorar</span>
-            <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-bounce" />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

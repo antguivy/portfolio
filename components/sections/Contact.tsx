@@ -135,7 +135,7 @@ export function Contact() {
             initial={{ opacity: 0, x: 30, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-col items-center lg:mt-20"
+            className="hidden md:flex flex-col items-center lg:mt-20"
           >
             {/* Contact Info Cards */}
             <div className="space-y-4 mb-10 w-full max-w-[500px] mx-auto">

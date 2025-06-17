@@ -43,3 +43,9 @@ export interface ProjectFilters {
   featured?: boolean;
   technologies?: string[];
 }
+
+export interface Technology {
+  name: string;
+  logo: string;
+  categories: string[];
+}

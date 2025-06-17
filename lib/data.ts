@@ -1,4 +1,4 @@
-import { Project, Categories } from "./types";
+import { Project, Categories, Technology } from "./types";
 
 export const projects: Project[] = [
   {
@@ -22,7 +22,7 @@ export const projects: Project[] = [
       "https://media.licdn.com/dms/image/v2/D4E22AQF9Wnu9sYXrBA/feedshare-shrink_800/B4EZdtX0ZMHsAg-/0/1749886650861?e=1752710400&v=beta&t=Sk5ko78JGDG74e1AYqcdfWwvR4wNZlbScF4mFD_D8FU",
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/elt-opensky-flydata",
-    linkedinUrl: "",
+    linkedinUrl: "https://www.linkedin.com/posts/antguivy_dataengineering-airflow-dbt-activity-7339652839704612864-B_gZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     date: "14-06-2025",
     featured: true,
     status: "deployed",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     category: ["data-engineering"],
     description:
       "Pipeline ETL para el análisis de datos de productos de temporada de playa.",
-    technologies: ["Python", "Análisis de Datos", "Gemini AI", "Web Scraping"],
+    technologies: ["Python", "Gemini AI", "Web Scraping"],
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Falabella.svg/320px-Falabella.svg.png",
     demoUrl: "",
@@ -141,7 +141,7 @@ export const projects: Project[] = [
   {
     id: "segmentacion-productos-kmeans-2025",
     title: "Segmentación de Productos con K-means",
-    category: ["data-analysis"],
+    category: ["data-analysis", "machine-learning"],
     description:
       "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
     technologies: ["Sklearn", "Pandas", "SqlServer"],
@@ -341,47 +341,115 @@ export const categories: Categories = {
   },
 };
 
-export const technologies = [
+export const technologies: Technology[] = [
+  {
+    name:"n8n",
+    logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/n8n-color.png",
+    categories: ["ai-development"] // Útil para Data data-engineering
+  },
+  {
+    name: "Snowflake",
+    logo: "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    categories: ["data-engineering"] // Útil para ambos roles
+  },
+  {
+    name: "dbt",
+    logo: "https://images.seeklogo.com/logo-png/43/2/dbt-logo-png_seeklogo-431111.png",
+    categories: ["data-engineering"] // Útil para Data data-engineering
+  },
+  {
+    name: "SODA",
+    logo: "https://avatars.githubusercontent.com/u/45313710?v=4",
+    categories: ["data-engineering"] // Útil para Data data-engineering
+  },
+  {
+    name: "Astronomer Cosmos",
+    logo: "https://astronomer.io/favicon.ico",
+    categories: ["data-engineering"] // Útil para Data data-engineering
+  },
+  {
+    name: "BigQuery",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    categories: ["data-engineering", "data-analysis"] // Útil para ambos roles
+  },
+  {
+    name: "Redpanda",
+    logo: "https://cdn.brandfetch.io/id-QtFxwCg/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    categories: ["data-engineering"] // Útil para Data data-engineering y AI data-engineering
+  },
+  {
+    name: "Apache Airflow",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg",
+    categories: ["data-engineering"]
+  },
+  {
+    name: "Figma",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    categories: ["data-analysis", "others"]
+  },
   {
     name: "Python",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    categories: ["data-engineering", "ai-development", "data-analysis"] // Puede ser tanto Data data-engineering como AI data-engineering
   },
   {
     name: "SQL",
     logo: "https://www.svgrepo.com/show/331761/sql-database-sql-azure.svg",
+    categories: ["data-analysis", "data-engineering"] // Útil para ambos roles
   },
   {
     name: "Tableau",
     logo: "https://www.svgrepo.com/show/354428/tableau-icon.svg",
+    categories: ["data-analysis"]
   },
   {
     name: "Power BI",
     logo: "https://its.ucr.edu/sites/default/files/styles/form_preview/public/powerbi%20logo%201.png?itok=yYXO-S-V",
+    categories: ["data-analysis"]
   },
-  { name: "Excel", logo: "https://www.svgrepo.com/show/373589/excel.svg" },
+  {
+    name: "Excel",
+    logo: "https://www.svgrepo.com/show/373589/excel.svg",
+    categories: ["data-analysis"]
+  },
   {
     name: "React",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    categories: ["others"]
   },
   {
     name: "Next.js",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    categories: ["others"]
   },
   {
     name: "TypeScript",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    categories: ["others"] // Útil para desarrollo y ingeniería
   },
   {
     name: "Tailwind",
     logo: "https://www.svgrepo.com/show/374118/tailwind.svg",
+    categories: ["others"]
   },
   {
     name: "Git",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    categories: ["data-engineering", "others", "data-analysis"] // Útil para todos los desarrollos
+  },
+  {
+    name: "GitHub",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    categories: ["data-engineering", "ai-development", "data-analysis", "others"] // Útil para todos los desarrollos
   },
   {
     name: "Docker",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    categories: ["data-engineering", "ai-development"] // Útil para Data data-engineering y AI data-engineering
   },
-  { name: "AWS EC2", logo: "https://www.svgrepo.com/show/448268/aws-ec2.svg" },
+  {
+    name: "AWS EC2",
+    logo: "https://www.svgrepo.com/show/448268/aws-ec2.svg",
+    categories: ["others"] // Infraestructura para ambos roles
+  }
 ];

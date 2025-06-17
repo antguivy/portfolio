@@ -342,7 +342,7 @@ export function Projects() {
         >
           <Link href="/project" prefetch={false}>
             <Button className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
-              Ver Todos los Proyectos
+              Ver Todos mis Proyectos
               <ArrowUpRight className="w-5 h-5 ml-2" />
             </Button>
           </Link>

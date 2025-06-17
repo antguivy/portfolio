@@ -20,7 +20,6 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    // { href: '/', label: 'Acerca de mí' },
     { href: "/", hash: "#skills", label: "Habilidades" },
     { href: "/", hash: "project", label: "Proyectos" },
     { href: "/", hash: "#contact", label: "Contacto" },
@@ -48,11 +47,6 @@ export function Footer() {
   ];
 
   const contactInfo = [
-    // {
-    //   icon: MapPin,
-    //   text: 'Huancayo, Junín, Perú',
-    //   href: null
-    // },
     {
       icon: Mail,
       text: "antguivy@gmail.com",
@@ -67,10 +61,10 @@ export function Footer() {
 
   return (
     <footer className="relative bg-card/40 overflow-hidden">
-      <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-6 py-10 relative z-10 ">
+        <div className="flex flex-col md:flex-row justify-between gap-12 pb-8">
           {/* Sección Principal */}
-          <div className="lg:col-span-2 space-y-6">
+          <div>
             <div>
               <h3 className="text-3xl font-black mb-3">
                 <span className="bg-linear-to-r from-colortext/70 via-green-600 to-blue-600 bg-clip-text text-transparent">
@@ -107,60 +101,62 @@ export function Footer() {
               </div>
             </div>
           </div>
+          <div className="grid grid-cols-2 gap-4 sm:gap-10">
 
-          {/* Enlaces Rápidos */}
-          <div className="space-y-6">
-            <h4 className="text-sm font-bold text-colortext uppercase tracking-wider">
-              Navegación
-            </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={`${link.href}-${index}`}>
-                  <a
-                    href={`${link.href}${link.hash || ""}`}
-                    className="text-colortext hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <div className="w-1 h-1 rounded-full bg-colortext group-hover:bg-green-600 group-hover:scale-150 transition-all duration-300" />
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Enlaces Rápidos */}
+            <div className="space-y-6">
+              <h4 className="text-sm font-bold text-colortext uppercase tracking-wider">
+                Navegación
+              </h4>
+              <ul className="space-y-3">
+                {quickLinks.map((link, index) => (
+                  <li key={`${link.href}-${index}`}>
+                    <a
+                      href={`${link.href}${link.hash || ""}`}
+                      className="text-colortext hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group"
+                    >
+                      <div className="w-1 h-1 rounded-full bg-colortext group-hover:bg-green-600 group-hover:scale-150 transition-all duration-300" />
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Información de Contacto */}
-          <div className="space-y-6">
-            <h4 className="text-sm font-bold text-colortext uppercase tracking-wider">
-              Información
-            </h4>
-            <ul className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-slate-200 text-primary mt-1">
-                    <info.icon className="w-4 h-4" />
-                  </div>
-                  <div>
-                    {info.href ? (
-                      <a
-                        href={info.href}
-                        className="text-colortext hover:text-green-600 transition-colors duration-300 text-sm leading-relaxed"
-                      >
-                        {info.text}
-                      </a>
-                    ) : (
-                      <span className="text-colortext text-sm leading-relaxed">
-                        {info.text}
-                      </span>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {/* Información de Contacto */}
+            <div className="space-y-6">
+              <h4 className="text-sm font-bold text-colortext uppercase tracking-wider">
+                Información
+              </h4>
+              <ul className="space-y-4">
+                {contactInfo.map((info, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-slate-200 text-primary mt-1">
+                      <info.icon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          className="text-colortext hover:text-green-600 transition-colors duration-300 text-sm leading-relaxed"
+                        >
+                          {info.text}
+                        </a>
+                      ) : (
+                        <span className="text-colortext text-sm leading-relaxed">
+                          {info.text}
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Separador */}
-        <div className="border-t border-slate-200/50 mt-16 pt-8">
+        <div className="border-t border-slate-200/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Copyright */}
             <div className="flex flex-col sm:flex-row items-center gap-2 text-colortext text-sm text-center">
