@@ -2,7 +2,7 @@
 export type ProjectStatus = "deployed" | "in-progress" | "planned" | "archived";
 
 // Tipo para las categorías disponibles
-export type ProjectCategory = "data-analysis" | "data-engineering" | "ai-development" | "machine-learning";
+export type ProjectCategory = "data-analyst" | "data-engineer" | "ai-engineer" | "ml-engineer";
 
 // Tipo para un proyecto individual
 export interface Project {

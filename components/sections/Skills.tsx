@@ -15,9 +15,9 @@ export function Skills() {
   // Categorías simplificadas
   const skillCategories = {
     all: 'Todos',
-    "data-analysis": 'Data Analytics',
-    "data-engineering": 'Data Engineer',
-    "ai-development": 'AI Engineer',
+    "data-analyst": 'Data Analyst',
+    "data-engineer": 'Data Engineer',
+    "ai-engineer": 'AI Engineer',
     others: 'Otros'
   };
 

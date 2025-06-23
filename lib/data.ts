@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "elt-opensky-flydata",
     title: "Pipeline de Datos de Vuelos - Arquitectura ELT",
-    category: ["data-engineering"],
+    category: ["data-engineer"],
     description:
       "Pipeline de datos robusto que ingesta información de vuelos actuales desde OpenSky Network API utilizando procesamiento por lotes. Implementa patrones ELT modernos con Airflow para orquestación, dbt para transformaciones, SODA para validación de calidad y BigQuery como almacén analítico, optimizado para el contexto peruano.",
     technologies: [
@@ -31,7 +31,7 @@ export const projects: Project[] = [
   {
     id: "conversational-chat-db-bigquery",
     title: "Chat Conversacional + Bigquery + IA",
-    category: ["ai-development"],
+    category: ["ai-engineer"],
     description:
       "Chat inteligente que permite a usuarios no técnicos explorar datos de salud pública con IA generativa. El sistema convierte preguntas en lenguaje natural a SQL optimizado, analiza millones de registros en BigQuery y genera visualizaciones automáticas con alto rendimiento y manejo de casos complejos.",
     technologies: [
@@ -60,7 +60,7 @@ export const projects: Project[] = [
   {
     id: "anomalies-detection-realtime-quix",
     title: "Detección de Anomalías en la Bolsa en Tiempo Real",
-    category: ["data-engineering", "machine-learning"],
+    category: ["data-engineer", "ml-engineer"],
     description:
       "Sistema avanzado de detección de anomalías en tiempo real para datos financieros de NASDAQ. Implementa un pipeline completo con streaming de datos, modelos de ML ensemble y visualización interactiva para identificar patrones anómalos en trades de acciones.",
     technologies: [
@@ -87,7 +87,7 @@ export const projects: Project[] = [
   {
     id: "dashboard-logistics-insights",
     title: "Logistics and Revenue Insights",
-    category: ["data-analysis"],
+    category: ["data-analyst"],
     description:
       "Dashboard enfocado en conocimientos logísticos y de ingresos en distintas regiones. Este proyecto fue inspirado por una publicación en LinkedIn de Injae Park y fue desarrollado utilizando datos históricos de Kaggle.",
     technologies: ["Power BI", "Figma", "Tabular Editor"],
@@ -105,7 +105,7 @@ export const projects: Project[] = [
   {
     id: "dashboard-ipd-peru-2025",
     title: "Data Storytelling IPD",
-    category: ["data-analysis"],
+    category: ["data-analyst"],
     description:
       "Dashboard Interactivo que analiza el desempeño internacional de las federaciones deportivas peruanas durante el periodo 2014-2023.",
     technologies: ["Power BI", "Figma"],
@@ -123,7 +123,7 @@ export const projects: Project[] = [
   {
     id: "etl-falabella-playa-2025",
     title: "ETL para Análisis de Descripciones de Productos de Falabella",
-    category: ["data-engineering"],
+    category: ["data-engineer"],
     description:
       "Pipeline ETL para el análisis de datos de productos de temporada de playa.",
     technologies: ["Python", "Gemini AI", "Web Scraping"],
@@ -141,7 +141,7 @@ export const projects: Project[] = [
   {
     id: "segmentacion-productos-kmeans-2025",
     title: "Segmentación de Productos con K-means",
-    category: ["data-analysis", "machine-learning"],
+    category: ["data-analyst", "ml-engineer"],
     description:
       "Análisis de segmentación de productos en comercio electrónico mediante K-means, proporcionando estrategias optimizadas para marketing, gestión de inventarios y precios.",
     technologies: ["Sklearn", "Pandas", "SqlServer"],
@@ -158,7 +158,7 @@ export const projects: Project[] = [
   {
     id: "dashboard-recursos-humanos-2022",
     title: "Dashboard para Recursos Humanos",
-    category: ["data-analysis"],
+    category: ["data-analyst"],
     description:
       "Dashboard interactivo para la gestión de Recursos Humanos, proporcionando métricas clave sobre ausencias, rotación de personal y descuentos por sucursal.",
     technologies: ["Python", "Pandas", "Tableau"],
@@ -176,7 +176,7 @@ export const projects: Project[] = [
   {
     id: "web-scraping-bvl-2025",
     title: "Web Scraping BVL (Bolsa de Valores de Lima)",
-    category: ["data-analysis"],
+    category: ["data-analyst"],
     description:
       "Extracción de datos públicos para un estudio externo, cuyo objetivo fue estimar la eficiencia financiera de las empresas listadas en la BVL.",
     technologies: ["Selenium", "Pandas"],
@@ -193,7 +193,7 @@ export const projects: Project[] = [
   {
     id: "eda-juegos-google-play-2021",
     title: "EDA para juegos en Google Play",
-    category: ["data-analysis"],
+    category: ["data-analyst"],
     description:
       "Análisis Exploratorio de Datos (EDA) de los mejores juegos en Google Play, revelando información sobre categorías, calificaciones, instalaciones y popularidad.",
     technologies: ["Python", "Streamlit", "Plotly", "Pandas"],
@@ -211,7 +211,7 @@ export const projects: Project[] = [
   // {
   //   id: "ai-document-classifier",
   //   title: "Clasificador de Documentos con IA",
-  //   category: "ai-development",
+  //   category: "ai-engineer",
   //   description:
   //     "Sistema de clasificación automática de documentos usando NLP y modelos transformer con interfaz web para pruebas.",
   //   technologies: ["Python", "Transformers", "FastAPI", "React", "Docker"],
@@ -226,7 +226,7 @@ export const projects: Project[] = [
   // {
   //   id: "sales-forecasting",
   //   title: "Predicción de Ventas con Time Series",
-  //   category: "data-analysis",
+  //   category: "data-analyst",
   //   description:
   //     "Modelo de forecasting para predicción de ventas usando ARIMA y Prophet con dashboard interactivo.",
   //   technologies: ["Python", "Prophet", "ARIMA", "Dash", "Plotly"],
@@ -241,7 +241,7 @@ export const projects: Project[] = [
   // {
   //   id: "realtime-data-streaming",
   //   title: "Sistema de Streaming de Datos en Tiempo Real",
-  //   category: "data-engineering",
+  //   category: "data-engineer",
   //   description:
   //     "Arquitectura de streaming con Kafka y Spark para procesamiento de datos en tiempo real con dashboard de monitoreo.",
   //   technologies: [
@@ -262,7 +262,7 @@ export const projects: Project[] = [
   // {
   //   id: "chatbot-customer-service",
   //   title: "Chatbot de Atención al Cliente",
-  //   category: "ai-development",
+  //   category: "ai-engineer",
   //   description:
   //     "Chatbot inteligente con procesamiento de lenguaje natural para automatizar atención al cliente con integración a CRM.",
   //   technologies: [
@@ -283,7 +283,7 @@ export const projects: Project[] = [
   // {
   //   id: "fraud-detection-ml",
   //   title: "Detección de Fraudes con Machine Learning",
-  //   category: "data-analysis",
+  //   category: "data-analyst",
   //   description:
   //     "Sistema de detección de transacciones fraudulentas usando algoritmos de anomaly detection y redes neuronales.",
   //   technologies: ["Python", "TensorFlow", "Scikit-learn", "Flask", "Redis"],
@@ -298,7 +298,7 @@ export const projects: Project[] = [
   // {
   //   id: "data-lakehouse-architecture",
   //   title: "Arquitectura Data Lakehouse",
-  //   category: "data-engineering",
+  //   category: "data-engineer",
   //   description:
   //     "Implementación completa de Data Lakehouse usando Delta Lake con pipelines de procesamiento batch y streaming.",
   //   technologies: ["Delta Lake", "Apache Spark", "Python", "AWS", "Terraform"],
@@ -313,27 +313,27 @@ export const projects: Project[] = [
 ];
 
 export const categories: Categories = {
-  "data-analysis": {
-    name: "Análisis de Datos",
+  "data-analyst": {
+    name: "Data Analyst",
     description: "Proyectos de análisis, visualización y modelado de datos",
     color: "#3B82F6",
     icon: "📊",
   },
-  "data-engineering": {
-    name: "Data Engineering",
+  "data-engineer": {
+    name: "Data Engineer",
     description:
       "Pipelines, ETL, arquitecturas de datos y sistemas distribuidos",
     color: "#10B981",
     icon: "⚙️",
   },
-  "ai-development": {
-    name: "Desarrollo con IA",
+  "ai-engineer": {
+    name: "AI Engineer",
     description: "Aplicaciones con inteligencia artificial y machine learning",
     color: "#8B5CF6",
     icon: "🤖",
   },
-  "machine-learning": {
-    name: "Machine Learning",
+  "ml-engineer": {
+    name: "ML Engineer",
     description:
       "Modelos, entrenamiento y aplicaciones de aprendizaje automático",
     color: "#F59E0B",
@@ -345,72 +345,72 @@ export const technologies: Technology[] = [
   {
     name:"n8n",
     logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/n8n-color.png",
-    categories: ["ai-development"] // Útil para Data data-engineering
+    categories: ["ai-engineer"] // Útil para Data data-engineer
   },
   {
     name: "Snowflake",
     logo: "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-    categories: ["data-engineering"] // Útil para ambos roles
+    categories: ["data-engineer"] // Útil para ambos roles
   },
   {
     name: "dbt",
     logo: "https://images.seeklogo.com/logo-png/43/2/dbt-logo-png_seeklogo-431111.png",
-    categories: ["data-engineering"] // Útil para Data data-engineering
+    categories: ["data-engineer"] // Útil para Data data-engineer
   },
   {
     name: "SODA",
     logo: "https://avatars.githubusercontent.com/u/45313710?v=4",
-    categories: ["data-engineering"] // Útil para Data data-engineering
+    categories: ["data-engineer"] // Útil para Data data-engineer
   },
   {
     name: "Astronomer Cosmos",
     logo: "https://astronomer.io/favicon.ico",
-    categories: ["data-engineering"] // Útil para Data data-engineering
+    categories: ["data-engineer"] // Útil para Data data-engineer
   },
   {
-    name: "BigQuery",
+    name: "Google Cloud Platform",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-    categories: ["data-engineering", "data-analysis"] // Útil para ambos roles
+    categories: ["data-engineer", "ai-engineer", "others"] // Útil para ambos roles
   },
   {
     name: "Redpanda",
     logo: "https://cdn.brandfetch.io/id-QtFxwCg/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-    categories: ["data-engineering"] // Útil para Data data-engineering y AI data-engineering
+    categories: ["data-engineer"] // Útil para Data data-engineer y AI data-engineer
   },
   {
     name: "Apache Airflow",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg",
-    categories: ["data-engineering"]
+    categories: ["data-engineer"]
   },
   {
     name: "Figma",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-    categories: ["data-analysis", "others"]
+    categories: ["data-analyst", "others"]
   },
   {
     name: "Python",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    categories: ["data-engineering", "ai-development", "data-analysis"] // Puede ser tanto Data data-engineering como AI data-engineering
+    categories: ["data-engineer", "ai-engineer", "data-analyst"] // Puede ser tanto Data data-engineer como AI data-engineer
   },
   {
     name: "SQL",
     logo: "https://www.svgrepo.com/show/331761/sql-database-sql-azure.svg",
-    categories: ["data-analysis", "data-engineering"] // Útil para ambos roles
+    categories: ["data-analyst", "data-engineer"] // Útil para ambos roles
   },
   {
     name: "Tableau",
     logo: "https://www.svgrepo.com/show/354428/tableau-icon.svg",
-    categories: ["data-analysis"]
+    categories: ["data-analyst"]
   },
   {
     name: "Power BI",
     logo: "https://its.ucr.edu/sites/default/files/styles/form_preview/public/powerbi%20logo%201.png?itok=yYXO-S-V",
-    categories: ["data-analysis"]
+    categories: ["data-analyst"]
   },
   {
     name: "Excel",
     logo: "https://www.svgrepo.com/show/373589/excel.svg",
-    categories: ["data-analysis"]
+    categories: ["data-analyst"]
   },
   {
     name: "React",
@@ -435,17 +435,17 @@ export const technologies: Technology[] = [
   {
     name: "Git",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    categories: ["data-engineering", "others", "data-analysis"] // Útil para todos los desarrollos
+    categories: ["data-engineer", "others", "data-analyst"] // Útil para todos los desarrollos
   },
   {
     name: "GitHub",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-    categories: ["data-engineering", "ai-development", "data-analysis", "others"] // Útil para todos los desarrollos
+    categories: ["data-engineer", "ai-engineer", "data-analyst", "others"] // Útil para todos los desarrollos
   },
   {
     name: "Docker",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    categories: ["data-engineering", "ai-development"] // Útil para Data data-engineering y AI data-engineering
+    categories: ["data-engineer", "ai-engineer"] // Útil para Data data-engineer y AI data-engineer
   },
   {
     name: "AWS EC2",
