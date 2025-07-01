@@ -2,6 +2,32 @@ import { Project, Categories, Technology } from "./types";
 
 export const projects: Project[] = [
   {
+    "id": "sales_report_generator_gcrj",
+    "title": "Automatización de Reportes Mensuales - Enfoque Doble",
+    "category": ["data-engineer"],
+    "description": "Sistema de automatización para reportes mensuales de ventas con dos enfoques: n8n (no-code) para implementación rápida y Google Cloud Run Jobs para entornos de producción. Extrae datos de Snowflake, procesa métricas de ventas por cliente y categoría, y distribuye reportes Excel automáticamente vía email.",
+    "technologies": [
+      "Python",
+      "Google Cloud Run",
+      "Google Cloud Scheduler",
+      "Google Secret Manager",
+      "n8n",
+      "Snowflake",
+      "Docker",
+      "Gmail API",
+      "SQL",
+      "Cron Jobs"
+    ],
+    "image": "https://github.com/antguivy/sales_report_generator_gcrj/blob/main/screenshot_gcrj.png?raw=true",
+    "demoUrl": "",
+    "githubUrl": "https://github.com/antguivy/sales_report_generator_gcrj/tree/main",
+    "linkedinUrl": "https://www.linkedin.com/posts/antguivy_dataengineering-automation-cloudcomputing-activity-7345908541607604225-Q176?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
+    "date": "01-07-2025",
+    "featured": true,
+    "status": "deployed",
+    "public": true
+  },
+  {
     id: "elt-opensky-flydata",
     title: "Pipeline de Datos de Vuelos - Arquitectura ELT",
     category: ["data-engineer"],
