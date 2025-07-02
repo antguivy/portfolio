@@ -20,7 +20,7 @@ export const projects: Project[] = [
     ],
     "image": "https://github.com/antguivy/sales_report_generator_gcrj/blob/main/screenshot_gcrj.png?raw=true",
     "demoUrl": "",
-    "githubUrl": "https://github.com/antguivy/sales_report_generator_gcrj/tree/main",
+    "githubUrl": "https://github.com/antguivy/sales_report_generator_gcrj",
     "linkedinUrl": "https://www.linkedin.com/posts/antguivy_dataengineering-automation-cloudcomputing-activity-7345908541607604225-Q176?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     "date": "01-07-2025",
     "featured": true,
@@ -75,7 +75,7 @@ export const projects: Project[] = [
       "https://github.com/antguivy/conversational-chat-db-bigquery/blob/main/docs/ss-bg.png?raw=true",
     demoUrl: "",
     githubUrl:
-      "https://github.com/antguivy/conversational-chat-db-bigquery/tree/main",
+      "https://github.com/antguivy/conversational-chat-db-bigquery",
     linkedinUrl:
       "https://www.linkedin.com/posts/antguivy_inteligenciaartificial-bigquery-geminiai-activity-7337840993506918400-J-ug?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     date: "06-06-2025",
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     image:
       "https://github.com/antguivy/dashboard-ipd-peru-2025/blob/main/docs/dashboard_ss.png?raw=true",
     demoUrl: "",
-    githubUrl: "https://github.com/antguivy/dashboard-ipd-peru-2025/tree/main",
+    githubUrl: "https://github.com/antguivy/dashboard-ipd-peru-2025",
     linkedinUrl:
       "https://www.linkedin.com/posts/antguivy_datastorytelling-powerbi-dashboarddesign-activity-7300050819893084161-OuB3?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",
     date: "25-02-2025",
