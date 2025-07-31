@@ -7,13 +7,13 @@ export const projects: Project[] = [
     "category": ["data-engineer"],
     "description": "Sistema de automatización para reportes mensuales de ventas con dos enfoques: n8n (no-code) para implementación rápida y Google Cloud Run Jobs para entornos de producción. Extrae datos de Snowflake, procesa métricas de ventas por cliente y categoría, y distribuye reportes Excel automáticamente vía email.",
     "technologies": [
+      "Snowflake",
       "Python",
-      "Google Cloud Run",
+      "Google Cloud Run Jobs",
+      "n8n",
+      "Docker",
       "Google Cloud Scheduler",
       "Google Secret Manager",
-      "n8n",
-      "Snowflake",
-      "Docker",
       "Gmail API",
       "SQL",
       "Cron Jobs"
@@ -39,13 +39,13 @@ export const projects: Project[] = [
       "dbt",
       "SODA",
       "BigQuery",
-      "Astronomer Cosmos",
       "Google Cloud Platform",
+      "Astronomer Cosmos",
       "OpenSky API",
       "SQL"
     ],
     image:
-      "https://media.licdn.com/dms/image/v2/D4E22AQF9Wnu9sYXrBA/feedshare-shrink_800/B4EZdtX0ZMHsAg-/0/1749886650861?e=1752710400&v=beta&t=Sk5ko78JGDG74e1AYqcdfWwvR4wNZlbScF4mFD_D8FU",
+      "https://media.licdn.com/dms/image/v2/D4E22AQF9Wnu9sYXrBA/feedshare-shrink_2048_1536/B4EZdtX0ZMHsAo-/0/1749886650894?e=1756944000&v=beta&t=Yz1m6KOzY0cAjIRS1OAUgm4UpTRpL7hY0C_7TuwOSwk",
     demoUrl: "",
     githubUrl: "https://github.com/antguivy/elt-opensky-flydata",
     linkedinUrl: "https://www.linkedin.com/posts/antguivy_dataengineering-airflow-dbt-activity-7339652839704612864-B_gZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABz9KywBfbARP0fv_uE6vyPpQVzkEMm3jyo",

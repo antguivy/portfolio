@@ -28,14 +28,14 @@
     --muted-foreground: oklch(0.45 0.02 230);
     
     /* Accent - Verde azulado para destacar */
-    --accent: oklch(0.88 0.08 180);
+    --accent: oklch(0.96 0.01 240);
     --accent-foreground: oklch(0.2 0.05 240);
     
     --destructive: oklch(0.65 0.2 25);
     --destructive-foreground: oklch(0.98 0.005 180);
     
     --border: oklch(0.88 0.02 220);
-    --input: oklch(0.95 0.01 220);
+    --input: oklch(0.97 0.005 180);
     --ring: oklch(0.55 0.18 250);
     
     /* Charts - Paleta vibrante y profesional */
@@ -79,7 +79,7 @@
     --muted-foreground: oklch(0.80 0.02 220); /* Aumentado para contraste */
     
     /* Accent - Cian vibrante (AJUSTADO AÚN MÁS CLARO) */
-    --accent: oklch(0.45 0.08 200); /* Aumentado para ser más claro */
+    --accent: oklch(0.12 0.01 240); /* Aumentado para ser más claro */
     --accent-foreground: oklch(0.96 0.02 180); /* Mantenido alto para contraste */
     
     --destructive: oklch(0.7 0.18 20);

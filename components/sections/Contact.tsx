@@ -3,6 +3,7 @@ import React, { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import {
+  Copy,
   ExternalLink,
   Mail,
   MessageCircle,
@@ -14,6 +15,13 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Card } from "../ui/card";
 import ContactForm from "../contact-form";
 import Image from "next/image";
+import { toast } from "sonner";
+
+interface ContactInfo {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+}
 
 export function Contact() {
   const [hoveredSocial, setHoveredSocial] = useState<String | null>(null);
@@ -46,21 +54,28 @@ export function Contact() {
     },
   ];
 
-  const contactInfo = [
+  const contactInfo: ContactInfo[] = [
     {
       icon: Mail,
       label: "Email",
-      value: "antguivy@gmail.com",
-      href: "mailto:antguivy@gmail.com",
+      value: "antguivy@gmail.com"
     },
     {
       icon: Phone,
       label: "Teléfono",
-      value: "930217050",
-      href: null,
+      value: "+51 930 217 050"
     },
   ];
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
+  const handleCopy = (text: string, index: number): void => {
+    navigator.clipboard.writeText(text);
+    setCopiedIndex(index);
+    toast.success("¡Copiado!");
+
+    // Resetear el color después de 2 segundos
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
   return (
     <section id="contact" className="relative py-20 overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -146,7 +161,7 @@ export function Contact() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <Card className="p-4 bg-white/80 backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
+                  <Card className="p-4 bg-white/80 backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl bg-linear-to-br from-gray-50 to-gray-100 group-hover:from-green-50 group-hover:to-blue-50 transition-all duration-300">
                         <info.icon className="w-5 h-5 text-slate-600 group-hover:text-green-600 transition-colors duration-300" />
@@ -155,17 +170,18 @@ export function Contact() {
                         <p className="font-semibold text-slate-900">
                           {info.label}
                         </p>
-                        {info.href ? (
-                          <a
-                            href={info.href}
-                            className="text-slate-600 hover:text-green-600 transition-colors duration-200 flex items-center gap-1"
-                          >
-                            {info.value}
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        ) : (
-                          <p className="text-slate-600">{info.value}</p>
-                        )}
+                        <p className="text-slate-600 text-sm">
+                          {info.value}
+                        </p>
+                      </div>
+                      <div className="ml-auto">
+                        <Copy
+                          className={`w-4 h-4 cursor-pointer transition-colors duration-300 ${copiedIndex === index
+                            ? 'text-chart-3'
+                            : 'text-gray-600 hover:text-chart-3'
+                            }`}
+                          onClick={() => handleCopy(info.value, index)}
+                        />
                       </div>
                     </div>
                   </Card>

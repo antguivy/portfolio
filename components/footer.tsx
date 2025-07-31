@@ -9,9 +9,17 @@ import {
   Mail,
   MapPin,
   Phone,
+  Copy
 } from "lucide-react";
+import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Card } from "./ui/card";
+import { toast } from "sonner";
+
+interface ContactInfo {
+  icon: React.ComponentType<{ className?: string }>;
+  text: string;
+}
+
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,27 +45,30 @@ export function Footer() {
       href: "https://www.linkedin.com/in/antguivy/",
       icon: FaLinkedin,
       color: "hover:dark:bg-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600",
-    },
-    {
-      name: "Email",
-      href: "mailto:antguivy@gmail.com",
-      icon: Mail,
-      color: "hover:dark:bg-green-600 hover:bg-green-600 hover:text-white hover:border-green-600",
-    },
+    }
   ];
 
-  const contactInfo = [
+  const contactInfo: ContactInfo[] = [
     {
       icon: Mail,
-      text: "antguivy@gmail.com",
-      href: "mailto:antguivy@gmail.com",
+      text: "antguivy@gmail.com"
     },
     {
       icon: Phone,
-      text: "+51 930 217 050",
-      href: "tel:+51930217050",
+      text: "+51 930 217 050"
     },
   ];
+
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleCopy = (text: string, index: number): void => {
+    navigator.clipboard.writeText(text);
+    setCopiedIndex(index);
+    toast.success("¡Copiado!");
+
+    // Resetear el color después de 2 segundos
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
 
   return (
     <footer className="relative bg-card/40 overflow-hidden">
@@ -71,7 +82,6 @@ export function Footer() {
                   Anthony Villazana
                 </span>
               </h3>
-
             </div>
 
             {/* Social Links */}
@@ -134,20 +144,18 @@ export function Footer() {
                     <div className="p-2 rounded-lg bg-slate-200 text-primary mt-1">
                       <info.icon className="w-4 h-4" />
                     </div>
-                    <div>
-                      {info.href ? (
-                        <a
-                          href={info.href}
-                          className="text-colortext hover:text-green-600 transition-colors duration-300 text-sm leading-relaxed"
-                        >
-                          {info.text}
-                        </a>
-                      ) : (
-                        <span className="text-colortext text-sm leading-relaxed">
-                          {info.text}
-                        </span>
-                      )}
+                    <div className="flex-1">
+                      <span className="text-colortext text-sm leading-relaxed">
+                        {info.text}
+                      </span>
                     </div>
+                    <Copy
+                      className={`w-4 h-4 cursor-pointer transition-colors duration-300 ${copiedIndex === index
+                        ? 'text-chart-3'
+                        : 'text-colortext hover:text-chart-3'
+                        }`}
+                      onClick={() => handleCopy(info.text, index)}
+                    />
                   </li>
                 ))}
               </ul>
@@ -174,7 +182,7 @@ export function Footer() {
               onClick={scrollToTop}
               variant="outline"
               size="sm"
-              className="backdrop-blur-xs dark:hover:text-gray-700 dark:hover:border-green-500 dark:hover:bg-green-50 hover:border-green-500 hover:bg-green-50 transition-all duration-300 group"
+              className="text-colortext hover:border-chart-3 transition-all duration-300 group"
             >
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
               <span className="ml-2 hidden sm:inline">Volver arriba</span>

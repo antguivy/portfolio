@@ -81,7 +81,7 @@ const ContactForm = () => {
                 <Input
                   placeholder="Ej: Juan Pérez"
                   {...field}
-                  className="h-12 px-4 bg-input border-slate-200 rounded-xl focus:border-green-500 focus:ring-chart-3 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
+                  className="h-12 px-4 bg-input border-border rounded-xl focus:border-green-500 focus:ring-chart-3 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
                   disabled={isLoading}
                 />
               </FormControl>
@@ -105,7 +105,7 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Ej: juan@ejemplo.com"
                   {...field}
-                  className="h-12 px-4 bg-input border-slate-200 rounded-xl focus:border-blue-500 focus:ring-chart-1 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
+                  className="h-12 px-4 bg-input border-border rounded-xl focus:border-blue-500 focus:ring-chart-1 focus:ring-2 transition-all duration-300 placeholder:text-slate-400"
                   disabled={isLoading}
                 />
               </FormControl>
@@ -128,7 +128,7 @@ const ContactForm = () => {
                 <Textarea
                   placeholder="Cuéntame sobre tu proyecto, idea o consulta. Mientras más detalles, mejor podré ayudarte..."
                   {...field}
-                  className="min-h-[120px] px-4 py-3 bg-input border-slate-200 rounded-xl focus:border-purple-500 focus:ring-chart-2 focus:ring-2 transition-all duration-300 placeholder:text-slate-400 resize-none"
+                  className="min-h-[120px] px-4 py-3 bg-input border-border rounded-xl focus:border-purple-500 focus:ring-chart-2 focus:ring-2 transition-all duration-300 placeholder:text-slate-400 resize-none"
                   disabled={isLoading}
                 />
               </FormControl>

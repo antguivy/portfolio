@@ -270,7 +270,7 @@ export function Skills() {
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-xs font-medium text-card-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                    <span className="text-xs font-medium text-card-foreground transition-colors duration-300 leading-tight">
                       {tech.name}
                     </span>
                   </div>

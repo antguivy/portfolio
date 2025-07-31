@@ -2,39 +2,25 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects, categories } from "@/lib/data";
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowUpRight,
-  Brain,
-  Calendar,
-  Check,
-  Code,
-  Database,
-  ExternalLink,
-  Eye,
-  Grid3X3,
-  List,
-  Play,
-  Star,
-  Tag,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import {
-  getCategoryBadgeClass,
-  getCategoryColor,
-  getCategoryIcon,
+  getCategoryIcon
 } from "@/components/functions";
 import { ProjectCategory } from "@/lib/types";
+import ListProjects from "@/components/list-projects";
+import { Input } from "@/components/ui/input";
 
 export default function AllProjects() {
   const [selectedCategory, setSelectedCategory] =
     useState<ProjectCategory | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<String | null>(null);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>(""); // Nuevo estado para búsqueda
 
   // Memoizar proyectos filtrados con búsqueda
@@ -133,16 +119,16 @@ export default function AllProjects() {
         <div className="bg-card p-4 mb-4 shadow-xs rounded-xl">
           <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
             {/* Búsqueda y Filtro Móvil */}
-            <div className="flex-1 max-w-md w-full">
-              <div className="flex gap-3 items-center">
+            <div className="flex-1 w-full">
+              <div className="flex gap-3 items-center justify-between">
                 {/* Campo de búsqueda */}
                 <div className="relative flex-1">
-                  <input
+                  <Input
                     type="text"
                     placeholder="Buscar proyectos..."
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    className="w-full pl-12 pr-12 py-3 border border-gray-200 rounded-xl focus:outline-hidden focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                    className="w-full pl-12 pr-12 py-3 border border-border rounded-xl focus:outline-hidden focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                   />
                   <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                     <svg
@@ -184,34 +170,47 @@ export default function AllProjects() {
 
                 {/* Select de filtros en móvil - mejorado */}
                 <div className="block lg:hidden relative">
-                  <div className="relative">
-                    <select
-                      value={selectedCategory || ""}
-                      onChange={(e) =>
-                        handleCategoryChange(
-                          (e.target.value as ProjectCategory) || null
-                        )
-                      }
-                      className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
-                      title="Filtrar por categoría"
-                    >
-                      <option value="">Todos</option>
-                      {Object.entries(categories).map(([key, category]) => (
-                        <option key={key} value={key}>
-                          {category.name}
-                        </option>
-                      ))}
-                    </select>
+                  <Select
+                    value={selectedCategory || "all"}
+                    onValueChange={(value) =>
+                      handleCategoryChange(value === "all" ? null : (value as ProjectCategory))
+                    }
+                  >
+                    <SelectTrigger className="w-12 h-9 border-0 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 px-2 [&>span]:hidden">
+                      <div className="w-full h-full flex items-center justify-center relative">
+                        {/* Icono principal */}
+                        <div className="text-gray-600">
+                          {selectedCategory ? (
+                            getCategoryIcon(selectedCategory)
+                          ) : (
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                              />
+                            </svg>
+                          )}
+                        </div>
 
-                    {/* Botón visual */}
-                    <div className="w-12 h-12 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-xl transition-all duration-200 flex items-center justify-center relative">
-                      {/* Icono principal */}
-                      <div className="text-gray-600">
-                        {selectedCategory ? (
-                          getCategoryIcon(selectedCategory)
-                        ) : (
+                        {/* Indicador de filtro activo */}
+                        {selectedCategory && (
+                          <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white"></div>
+                        )}
+                      </div>
+                    </SelectTrigger>
+
+                    <SelectContent className="min-w-[200px]">
+                      <SelectItem value="all">
+                        <div className="flex items-center gap-2">
                           <svg
-                            className="w-5 h-5"
+                            className="w-4 h-4 text-gray-500"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -220,64 +219,50 @@ export default function AllProjects() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={2}
-                              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                              d="M4 6h16M4 12h16M4 18h16"
                             />
                           </svg>
-                        )}
-                      </div>
+                          <span>Todos</span>
+                        </div>
+                      </SelectItem>
 
-                      {/* Flecha dropdown */}
-                      <div className="absolute bottom-1 right-1">
-                        <svg
-                          className="w-3 h-3 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </div>
-
-                      {/* Indicador de filtro activo */}
-                      {selectedCategory && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white"></div>
-                      )}
-                    </div>
-                  </div>
+                      {Object.entries(categories).map(([key, category]) => (
+                        <SelectItem key={key} value={key}>
+                          <div className="flex items-center gap-2">
+                            {getCategoryIcon(key as ProjectCategory)}
+                            <span>{category.name}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             </div>
 
             {/* Filtros en desktop (botones) */}
             <div className="hidden lg:flex flex-wrap gap-2">
-              <button
+              <Button
                 onClick={() => handleCategoryChange(null)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === null
-                    ? "bg-linear-to-r from-blue-600 to-purple-600 text-white"
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                }`}
+                className={`rounded-full px-6 py-3 font-semibold transition-all duration-200 cursor-pointer ${selectedCategory === null
+                  ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                  : "bg-background hover:bg-accent text-colortext border border-border shadow-xs"
+                  }`}
               >
                 Todos
-              </button>
+              </Button>
               {Object.entries(categories).map(([key, category]) => (
-                <button
+                <Button
                   key={key}
                   onClick={() => handleCategoryChange(key as ProjectCategory)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                    selectedCategory === key
-                      ? "bg-linear-to-r from-blue-600 to-purple-600 text-white"
-                      : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                  }`}
+                  className={`rounded-full px-6 py-3 font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer ${selectedCategory === key
+                    ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "bg-background hover:bg-accent text-colortext border border-border shadow-xs"
+                    }`}
                 >
                   {getCategoryIcon(key as ProjectCategory)}
                   {category.name}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -317,14 +302,11 @@ export default function AllProjects() {
                 </div>
               )}
 
-              {selectedCategory && (
+              {selectedCategory && categories[selectedCategory as keyof typeof categories] && (
                 <div className="flex items-center gap-1 bg-purple-100 text-purple-800 px-2 py-1 rounded-md">
                   <span>
-                    Categoría:{" "}
-                    {
-                      categories[selectedCategory as keyof typeof categories]
-                        .name
-                    }
+                    Categoría:{""}
+                    {categories[selectedCategory as keyof typeof categories]?.name}
                   </span>
                   <button
                     onClick={() => handleCategoryChange(null)}
@@ -368,9 +350,8 @@ export default function AllProjects() {
 
                 return (
                   <motion.div
-                    key={`${project.id}-${
-                      selectedCategory || "all"
-                    }-${searchTerm}`}
+                    key={`${project.id}-${selectedCategory || "all"
+                      }-${searchTerm}`}
                     variants={itemVariants}
                     layout
                     whileHover={{ y: -8 }}
@@ -378,143 +359,11 @@ export default function AllProjects() {
                     onHoverEnd={() => handleProjectHover(null)}
                     className="group"
                   >
-                    <Card className="relative overflow-hidden bg-card backdrop-blur-xs border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-                      {/* Image Container */}
-                      <div className="relative overflow-hidden aspect-video bg-linear-to-br from-gray-100 to-gray-200">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={450}
-                          height={225}
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          priority={false}
-                          loading="lazy"
-                        />
-
-                        {/* Category Badge - Mostrar según el filtro */}
-                        <div className="absolute bottom-2 left-2">
-                          <div className="flex gap-2 flex-wrap max-w-[200px]">
-                            {displayCategories.map((cat) => (
-                              <div
-                                key={cat}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground backdrop-blur-xs shadow-md"
-                              >
-                                <div
-                                  className={`p-1 rounded-full text-white bg-linear-to-r ${getCategoryColor(
-                                    cat
-                                  )}`}
-                                >
-                                  {getCategoryIcon(cat)}
-                                </div>
-                                <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">
-                                  {categories[cat].name}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          {project.linkedinUrl && (
-                            <Button
-                              asChild
-                              size="sm"
-                              className="bg-white/95 hover:dark:bg-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-slate-800 shadow-lg rounded-full p-2"
-                            >
-                              <Link
-                                href={project.linkedinUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <FaLinkedin className="w-4 h-4" />
-                              </Link>
-                            </Button>
-                          )}
-                          {project.githubUrl && project.public && (
-                            <Button
-                              asChild
-                              size="sm"
-                              className="bg-white/95 hover:dark:bg-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 text-slate-800 shadow-lg rounded-full p-2"
-                            >
-                              <Link
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <FaGithub className="w-4 h-4" />
-                              </Link>
-                            </Button>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Content - Ahora con flex-grow para que ocupe el espacio disponible */}
-                      <div className="p-6 flex-grow flex flex-col">
-                        <div className="mb-4 flex-grow">
-                          <h3 className="text-xl font-bold mb-2 text-colortext group-hover:text-primary transition-colors duration-200 leading-tight">
-                            <Link href={`/project/${project.id}`}>
-                              {project.title}
-                            </Link>
-                          </h3>
-                          <p className="text-colortext/90 leading-relaxed text-sm">
-                            {project.description}
-                          </p>
-                        </div>
-
-                        {/* Technologies */}
-                        <div className="mb-6">
-                          <div className="flex flex-wrap gap-1.5">
-                            {project.technologies.slice(0, 4).map((tech) => (
-                              <Badge
-                                key={tech}
-                                className={`border font-medium text-xs px-2 py-1 rounded-full transition-colors duration-200 ${getCategoryBadgeClass(
-                                  displayCategories[0] || project.category[0]
-                                )}`}
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
-                            {project.technologies.length > 4 && (
-                              <Badge
-                                className={`border font-medium text-xs px-2 py-1 rounded-full ${getCategoryBadgeClass(
-                                  displayCategories[0] || project.category[0]
-                                )}`}
-                              >
-                                +{project.technologies.length - 4}
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Footer - Siempre al final */}
-                        <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                          <div className="flex items-center gap-2 text-colortext">
-                            <Calendar className="w-4 h-4" />
-                            <span className="font-medium text-sm">
-                              {project.date}
-                            </span>
-                          </div>
-                          <Link
-                            href={`/project/${project.id}`}
-                            className="block h-full"
-                            prefetch={false}
-                          >
-                            <div className="flex items-center gap-1.5 text-primary opacity-60 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer hover:underline hover:underline-offset-4">
-                              {hoveredProject === project.title && (
-                                <span className="text-sm font-medium">
-                                  Abrir
-                                </span>
-                              )}
-                              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </Card>
+                    <ListProjects
+                      project={project}
+                      displayCategories={displayCategories}
+                      hoveredProject={hoveredProject}
+                    />
                   </motion.div>
                 );
               })}

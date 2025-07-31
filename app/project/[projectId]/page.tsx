@@ -63,7 +63,6 @@ async function getGitHubReadme(githubUrl: string) {
 
     // Procesar URLs relativas y contenido especial
     markdownContent = convertRelativeUrls(markdownContent, githubUrl);
-    // markdownContent = processGitHubSpecialContent(markdownContent, owner, repo);
 
     // Procesar markdown con todos los plugins
     const { unified } = await import("unified");
