@@ -1,6 +1,27 @@
 import { Project, Categories, Technology } from "./types";
 
 export const projects: Project[] = [
+    {
+    "id": "elt-ecommerce-snowflake",
+    "title": "Pipeline ELT - Ecommerce con Snowflake",
+    "category": ["data-engineer"],
+    "description": "El enfoque está en la generación, ingesta y transformación de datos sintéticos, implementando las capas bronze y silver para estructurar y preparar la información para análisis posteriores.",
+    "technologies": [
+      "Snowflake",
+      "Python",
+      "airflow",
+      "dbt",
+      "SQL"
+    ],
+    "image": "https://github.com/antguivy/elt-ecommerce-snowflake/blob/main/docs/snowflake-data.png?raw=true",
+    "demoUrl": "",
+    "githubUrl": "https://github.com/antguivy/elt-ecommerce-snowflake",
+    "linkedinUrl": "",
+    "date": "05-07-2025",
+    "featured": true,
+    "status": "deployed",
+    "public": true
+  },
   {
     "id": "sales_report_generator_gcrj",
     "title": "Automatización de Reportes Mensuales - Enfoque Doble",
